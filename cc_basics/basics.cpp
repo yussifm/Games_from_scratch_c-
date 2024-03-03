@@ -48,7 +48,7 @@ int main() {
     double hight = 222.3;
     float width = 55.6;
 
-    char a = 65;
+    char a = 65; //A
     char b = 'b';
 
     string name = "Anthony";
