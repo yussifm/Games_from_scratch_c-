@@ -91,8 +91,8 @@ int main() {
 
                                     }};
 
-    cout << "Elements in multi-dimensional array: " << tri_aphs_arr[3][0][0]
-         << endl;
+    cout << "Elements in multi-dimensional array: " << tri_aphs_arr[0][0][0]
+         << tri_aphs_arr[3][0][0] << endl;
 
     tri_aphs_arr[3][0][0] = "Hello";
     cout << "Elements in multi-dimensional array: " << tri_aphs_arr[3][0][0]
