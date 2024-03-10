@@ -112,6 +112,23 @@ int main() {
     string animationsFrames[numFrames] = {
         "play_frame_1.png", "play_frame_2.png", "play_frame_3.png"};
 
-    // Max score of a player
+    const int ROWS = 5;
+    const int COLS = 5;
+
+    char level[ROWS][COLS] = {{'#', '#', '#', '#', '#'},
+                              {'#', '.', '.', '.', '#'},
+                              {'#', '.', '#', '.', '#'},
+                              {'#', '.', '.', '.', '#'},
+                              {'#', '#', '#', '#', '#'}};
+
+    // Print the game level
+    std::cout << "Game Level:" << std::endl;
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            std::cout << level[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
     return 0;
 }
