@@ -132,5 +132,5 @@ int main() {
         int damage;
         int range;
         int bulletAmount;
-    }
+    };
 }

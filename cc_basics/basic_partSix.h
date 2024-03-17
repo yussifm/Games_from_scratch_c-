@@ -1,0 +1,2 @@
+void spawnEnemy();
+#pragma once
