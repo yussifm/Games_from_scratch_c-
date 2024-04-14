@@ -13,7 +13,7 @@ int main()
     srand(time(0));
     ifstream image;
     ofstream newImage;
-    image.open("image1.ppm");
+    image.open("out.ppm");
     newImage.open("newImage1.ppm");
 
     // Copying information
@@ -47,15 +47,16 @@ int main()
         b = blueStream.get();
 
         // Adding filters
-        if (g + 50 > 255)
+        if (g + 10 > 255)
         {
             g = 255;
         }
         else
         {
-            g += 50;
+            g += 10;
         }
         newImage << (r * rand()) % 255 << " " << (g * rand()) % 255 << " " << (b * rand()) % 255 << endl;
+        // newImage << r << " " << g << " " << b << endl;
     }
     image.close();    //
     newImage.close(); //
