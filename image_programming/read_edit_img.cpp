@@ -1,8 +1,8 @@
 
 #include <iostream>
 #include <fstream>
-// #include <ctime>
-// #include <cstdlib>
+#include <ctime>
+#include <cstdlib>
 #include <string>
 #include <sstream>
 
@@ -10,6 +10,7 @@ using namespace std;
 
 int main()
 {
+    srand(time(0));
     ifstream image;
     ofstream newImage;
     image.open("image1.ppm");
@@ -54,7 +55,7 @@ int main()
         {
             g += 50;
         }
-        newImage << r << " " << g << " " << b << endl;
+        newImage << (r * rand()) % 255 << " " << (g * rand()) % 255 << " " << (b * rand()) % 255 << endl;
     }
     image.close();    //
     newImage.close(); //
