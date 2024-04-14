@@ -55,8 +55,28 @@ int main()
         {
             g += 10;
         }
-        newImage << (r * rand()) % 255 << " " << (g * rand()) % 255 << " " << (b * rand()) % 255 << endl;
-        // newImage << r << " " << g << " " << b << endl;
+
+        // red
+        if (r + 10 > 255)
+        {
+            r = 255;
+        }
+        else
+        {
+            r += 10;
+        }
+
+        // blue
+        if (b + 10 > 255)
+        {
+            b = 255;
+        }
+        else
+        {
+            b += 10;
+        }
+        // newImage << (r * rand()) % 255 << " " << (g * rand()) % 255 << " " << (b * rand()) % 255 << endl;
+        newImage << r << " " << g << " " << b << endl;
     }
     image.close();    //
     newImage.close(); //
