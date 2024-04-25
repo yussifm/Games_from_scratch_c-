@@ -18,13 +18,19 @@ public:
 
 class Character {
 private:
-	Weapon& mWeapon;
-	int mhealth;
+	Weapon& mWeapon; 
+	
 
 public:
 	Character(Weapon& weaponProp): mWeapon(weaponProp){}
 
 	Weapon getWeapon() { return mWeapon; }
+	int* mhealth{ nullptr }; // NUll Pointer
+
+	//We should never attempt to dereference a nullptr using the * or -> operator.
+	//  If we need to dereference a pointer, 
+	// and we think it may be a nullptr, we can 
+	// first check for that condition using an if statement:
 };
 
 
@@ -77,6 +83,17 @@ int main(int argc, char* argv[]) {
 	std::cout << y << std::endl;
 
 	HandlePointers(&y);
+
+	if(!playerOne.mhealth){ // checking to see if pointer is null
+		std::cout << "No health" << std::endl;
+	}
+
+	int health = 100;
+	playerOne.mhealth = &health; // give a value to the null ptr
+
+	if (playerOne.mhealth) {  // if it is not null
+		std::cout << "Health Restored" << std::endl; 
+	}
 
 	return 0;
 }
