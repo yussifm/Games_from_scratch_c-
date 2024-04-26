@@ -6,6 +6,18 @@
 // common requirement we’ll have is to dereference the pointer,
 //  and then access one of its members
 
+
+// The This Pointer
+// The `this` keyword stores a pointer to the
+// object that our member function was called on.
+//  Use cases 
+//  1: CHaining Function Calls
+//  2: Identifying the caller -> allowing func to know who call them
+//  3: Overloading Operators
+// 
+
+
+
 #include <iostream>
 #include <string>
 
@@ -52,6 +64,14 @@ void increamPointer(int* value) {
 }
 
 
+// The this keyword example
+struct someType {
+	void someFunc() {
+		std::cout << this << std::endl;
+	}
+};
+
+
 int main(int argc, char* argv[]) {
 	 
 	Weapon weaponOne("Fire Sword");
@@ -94,6 +114,14 @@ int main(int argc, char* argv[]) {
 	if (playerOne.mhealth) {  // if it is not null
 		std::cout << "Health Restored" << std::endl; 
 	}
+
+	//// The this keyword example
+	someType someObject;
+	someObject.someFunc();
+
+	// same as using pointing to the memory location 
+	std::cout << &someObject << std::endl;
+
 
 	return 0;
 }
