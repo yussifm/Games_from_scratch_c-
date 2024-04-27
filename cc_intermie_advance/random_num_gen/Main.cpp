@@ -3,6 +3,7 @@
 
 
 
+
 /// <summary>
 /// The ability to simulate randomness plays a surprisingly big role in creating software. 
 /// In the context of graphics, for example, we often use randomness
@@ -22,8 +23,37 @@
 /// </summary>
 /// <returns></returns>
 
-int main() {
+int main() 
 
-	std::cout << Random::Int(1, 10) << ", " << Random::Int(1, 10) << ", " << Random::Int(1, 10) << std::endl;
+{
+    Random::PrintSeed();
+    using std::cout;
+    // We can still get random numbers:
+    cout << Random::Int(1, 100) << ", "
+        << Random::Int(1, 100) << ", "
+        << Random::Int(1, 100) << "\n\n";
+
+    // But now we can create reproducible results:
+    Random::Reseed(141102604);
+    Random::PrintSeed();
+    cout << Random::Int(1, 100) << ", "
+        << Random::Int(1, 100) << ", "
+        << Random::Int(1, 100) << "\n\n";
+
+    cout << "Let's go again - ";
+    Random::Reseed(141102604);
+    Random::PrintSeed();
+    cout << Random::Int(1, 100) << ", "
+        << Random::Int(1, 100) << ", "
+        << Random::Int(1, 100) << "\n\n";
+
+    for (int i{ 0 }; i < 8; ++i) {
+        if (Random::Bool(0.3)) {
+            std::cout << "Dodge, ";
+        }
+        else {
+            std::cout << "Hit, ";
+        }
+    }
 	return 0;
 }

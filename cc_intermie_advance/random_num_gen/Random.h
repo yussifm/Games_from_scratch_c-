@@ -1,5 +1,7 @@
 #pragma once
+#include <iostream>
 #include <random>
+
 
 
 // Generating a Random Number
@@ -16,14 +18,27 @@ namespace Random {
 	using namespace std;
 
 	random_device seeder;
-	mt19937 engine{ seeder() };
+	unsigned int seed{ seeder() };
+	mt19937 engine{ seed };
 
+	void PrintSeed() {
+		cout << "Seed: " << seed << endl;
+	}
+
+	void Reseed(unsigned int NewSeed) {
+		seed = NewSeed;
+		engine.seed(NewSeed);
+	}
 
 	int Int(int min, int max) {
 		uniform_int_distribution get(min, max);
 		return get(engine);
 	}
 
+	bool Bool(float probability) {
+		uniform_real_distribution get{ 0.0, 1.0 };
+		return probability > get(engine);
+	}
 
 
 }
