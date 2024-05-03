@@ -47,7 +47,15 @@ void takeOwnerShip(std::unique_ptr<int> num) {
 	std::cout << *num << '\n';
 }
 
+
+void takeOwnerShipTwo(std::shared_ptr<int> num) {
+	std::cout << *num << '\n';
+}
+
 void LogName(std::unique_ptr<CharacterTwo> C) {
+	std::cout << C->Name << '\n';
+}
+void LogNameTwo(const Character* C) {
 	std::cout << C->Name << '\n';
 }
 
@@ -231,6 +239,49 @@ int main() {
 	
 
 	// SubTopic: Shared Pointers using std::shared_ptr
+
+	//Unlike std::unique_ptr, std::shared_ptr allows multiple pointers to share ownership
+	//  of a single resource. The resource is only deallocated when the last std::shared_ptr
+	//  pointing to it is destroyed or reset.
+
+	//This shared ownership is managed through reference counting - an internal mechanism
+	//  that keeps track of how many std::shared_ptr instances are managing the same resource.
+	// This comes at a performance cost, so in general, std::unique_ptr, 
+	// should be our default choice of smart pointer.
+
+	auto shCharactOne{std::make_shared<CharacterTwo> ("Shared Character")};
+
+	// Using Share pointers
+	std::cout << (*shCharactOne).Name << '\n';
+	std::cout << shCharactOne ->Name << '\n';
+
+	// Accessing raw Pointer using get()
+
+	auto shPtr{ std::make_shared<Character>()};
+	LogNameTwo(shPtr.get());
+
+	// Transferring Ownership using std::move
+
+	auto intShPtr{std::make_shared<int>(87)};
+	auto intShPtrTwo{std::make_shared<int>(27)};
+
+	takeOwnerShipTwo(std::move(intShPtr));
+
+	// Swappping Ownership -> same as unique pointer
+	intShPtr.swap(intShPtrTwo);
+	// 
+	// Resetting OWnership -> same as unique pointer
+	//intShPtr.reset();
+
+	//The reset() method can also be used to replace the managed object
+	//  with a new one of the same type(or convertible to the same type):
+	intShPtr.reset(new int(65)); 
+
+
+
+
+
+
 
 
 
