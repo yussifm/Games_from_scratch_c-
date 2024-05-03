@@ -30,7 +30,26 @@ public:
 	~CharacterTwo() {
 		std::cout << "Deleting " << Name<< '\n' << '\n';
 	}
+};class CharacterThree {
+public:
+	virtual ~CharacterThree() = default;
 };
+
+class Monster : public CharacterThree {};
+
+void Downcast(std::shared_ptr<CharacterThree> Attacker) {
+	auto MonsterPtr{
+	  std::dynamic_pointer_cast<Monster>(Attacker)
+	};
+	if (MonsterPtr) {
+		std::cout
+			<< "Cast Succeeded: It's a monster!\n";
+	}
+	else {
+		std::cout
+			<< "Cast Failed: It's not a monster!\n";
+	}
+}
 
 Character getARandomCharacter() {
 	return Character{ "Yussif" };
@@ -271,6 +290,9 @@ int main() {
 	intShPtr.swap(intShPtrTwo);
 	// 
 	// Resetting OWnership -> same as unique pointer
+	// Unlike the unique pointer variation, the shared pointer’s reset() 
+	// method may not cause the object to be deleted.
+	
 	//intShPtr.reset();
 
 	//The reset() method can also be used to replace the managed object
@@ -278,7 +300,75 @@ int main() {
 	intShPtr.reset(new int(65)); 
 
 
+	// Sharing OwnerShip
 
+	auto cpyShPtr{std::make_shared<int>(29)};
+	
+	auto cpyShPtrTwo{ cpyShPtr };
+
+	auto cpyShPtrThree{ cpyShPtr };
+
+	// Getting the Owner Count using use_count()
+	
+	auto cpyShPtrFour{ cpyShPtrTwo };
+	std::cout << "Owner count: " << cpyShPtr.use_count() << '\n';
+	cpyShPtrTwo.reset();
+	std::cout << "Owner count: " << cpyShPtr.use_count() << '\n';
+	cpyShPtrThree.reset();
+	std::cout << "Owner count: " << cpyShPtr.use_count() << '\n';
+	cpyShPtrFour.reset();
+	std::cout << "Owner count: " << cpyShPtr.use_count() << '\n';
+	cpyShPtr.reset();
+	std::cout << "Owner count: " << cpyShPtr.use_count() << '\n';
+
+	// Shared Pointer Casting 
+	// Just like raw pointers can be cast to other types with dynamic_cast
+	//  and static_cast, so too can shared pointers.
+
+	// The only difference is, for shared pointers, we instead use std::dynamic_pointer_cast 
+	// and std::static_pointer_cast. Rather than returning raw pointers,
+	//  these functions return std::shared_ptr instances.
+
+	// If std::dynamic_pointer_cast fails, it returns an "empty" 
+	// shared pointer - that is, one that is not managing any underlying object.
+
+	//	Such a pointer evaluates to false when converted to a boolean 
+	// therefore code using std::dynamic_pointer_cast looks very similar to code using dynamic_cast:
+
+
+	 // A character pointer pointing at a monster
+	std::shared_ptr<CharacterThree> CharacterPtrA{std::make_shared<Monster>()};
+	Downcast(CharacterPtrA);
+
+	// A character pointer pointing at a character
+	std::shared_ptr<CharacterThree> CharacterPtrB{ std::make_shared<CharacterThree>()};
+	Downcast(CharacterPtrB);
+
+
+	// Owning and Pointing At Different Objects
+	// Shared pointers have an interesting feature where the object they are sharing ownership
+	//  over does not necessarily need to be the same object they are pointing at.
+    
+	// This is enabled through an alternative std::shared_ptr constructor, 
+	// sometimes referred to as the aliasing constructor, that accepts two arguments:
+
+	//The object to own, in the form of a std::shared_ptr to copy
+	//	The object to point at, in the form of a memory address
+
+
+	auto One{ std::make_shared<int>(1) };
+	int Two{ 2 };
+	std::shared_ptr<int> Alias{ One, &Two };
+
+	std::cout << "Number Pointed At: " << *Alias << '\n';
+
+
+	auto UserThree{ std::make_shared<CharacterTwo>() };
+	std::shared_ptr<std::string> Name{ UserThree, & UserThree->Name};
+
+	std::cout << "Name: " << *Name;
+	std::cout << "\nOwners: "
+		<< Name.use_count() << '\n';
 
 
 
