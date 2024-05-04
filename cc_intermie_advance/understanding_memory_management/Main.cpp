@@ -78,6 +78,11 @@ void LogNameTwo(const Character* C) {
 	std::cout << C->Name << '\n';
 }
 
+struct Resource {
+	~Resource() { std::cout << "\nDeallocating"; }
+};
+
+
 int main() {
 
 	// Topic 1: Allocating Dynamic Memory with 'new'
@@ -90,8 +95,8 @@ int main() {
 
 	Character* myCharacter{ new Character{"Studios"} };
 	std::cout << myCharacter->Name << '\n';
-	
-	Character* myRandCharacter{ new Character{getARandomCharacter()}}; // init with a func call
+
+	Character* myRandCharacter{ new Character{getARandomCharacter()} }; // init with a func call
 	std::cout << myRandCharacter->Name << '\n';
 
 
@@ -115,28 +120,28 @@ int main() {
 	/*If we do not call delete, we have a memory leak
 		If we call delete on a resource that was already deleted,
 		we cause memory corruption and defects(this is called a double - free error)
-		If we call delete too early, a component that was still using 
+		If we call delete too early, a component that was still using
 		that resource will stop functioning*/
 
 
-    // Topic 5: Memory ownership and Smart Pointers
+		// Topic 5: Memory ownership and Smart Pointers
 
-	// Topic 5.1: Smart Pointers and std::unique_ptr
+		// Topic 5.1: Smart Pointers and std::unique_ptr
 
-	//Like any pointer, a unique pointer points to an object in memory.
-	// The "unique" refers to the idea that it should be the only unique
-	//  pointer that points to that object.
+		//Like any pointer, a unique pointer points to an object in memory.
+		// The "unique" refers to the idea that it should be the only unique
+		//  pointer that points to that object.
 
-	//	As such, we can imagine that the function or object that owns 
-	// the unique pointer has exclusive ownership of the object that the pointer points at.
+		//	As such, we can imagine that the function or object that owns 
+		// the unique pointer has exclusive ownership of the object that the pointer points at.
 
-	// SubTopic: Creating Unique Pointers with make_unique
+		// SubTopic: Creating Unique Pointers with make_unique
 
-	auto myUniquePtr{std::make_unique<int>(42)};
+	auto myUniquePtr{ std::make_unique<int>(42) };
 
 	// Dereferencing Unique Pointers
-	auto userOnePtr{std::make_unique<CharacterTwo>("Unique Coded")};
-	auto userTwoPtr{std::make_unique<CharacterTwo>("Unique Coded Two")};
+	auto userOnePtr{ std::make_unique<CharacterTwo>("Unique Coded") };
+	auto userTwoPtr{ std::make_unique<CharacterTwo>("Unique Coded Two") };
 
 	std::cout << userTwoPtr->Name << '\n';
 	std::cout << userOnePtr->Name << '\n';
@@ -146,15 +151,15 @@ int main() {
 	/*
 	Given the design intent of unique pointers,
 	it doesn’t make sense to copy them.As a result, the unique_ptr
-    class takes some steps to prevent this.For example,
+	class takes some steps to prevent this.For example,
 	the copy constructor has been deleted.
 
 	Passing by values is also a form of copying, so it is also
 	prevented.
 
-	Of course, there are countless situations where we need to pass a pointer 
+	Of course, there are countless situations where we need to pass a pointer
 	to a function. For those scenarios, smart pointers implement the get() function,
-	which returns the underlying raw pointer.This allows other parts of our code to 
+	which returns the underlying raw pointer.This allows other parts of our code to
 	access our objects, without creating copies of our unique pointers:
 	*/
 
@@ -179,27 +184,27 @@ int main() {
 	/// After calling release(), the smart pointer’s get() function will return a nullptr:
 	/// </summary>
 
-	auto SmartPointer{std::make_unique<Character>()};
+	auto SmartPointer{ std::make_unique<Character>() };
 
-	Character* RawPointer{ SmartPointer.release()};
+	Character* RawPointer{ SmartPointer.release() };
 
 	// This will be a null pointer
-	std::cout << "Smart: "<< SmartPointer.get() << '\n';
+	std::cout << "Smart: " << SmartPointer.get() << '\n';
 
 	std::cout << "Raw: " << RawPointer << '\n';
 	delete RawPointer;
 
-	
+
 
 	// Updating Smart Pointers with reset()
 
 	/*
-	The reset() function will also release ownership of the 
+	The reset() function will also release ownership of the
 	underlying resource, but will also delete it.
 	After calling reset(), the get() function will return a nullptr:
 	*/
 
-	auto AbdulUniqPtr{std::make_unique<CharacterTwo>()};
+	auto AbdulUniqPtr{ std::make_unique<CharacterTwo>() };
 
 	AbdulUniqPtr.reset();
 
@@ -211,7 +216,7 @@ int main() {
 	//  we have swap(), which accepts another smart pointer as an argument,
 	//  and swaps the object being managed between the two pointers
 
-	auto Pointer1{std::make_unique<Character>("Coded") };
+	auto Pointer1{ std::make_unique<Character>("Coded") };
 	auto Pointer2{ std::make_unique<Character>("Studios") };
 
 	std::cout << "1: " << Pointer1->Name << '\n';
@@ -255,7 +260,7 @@ int main() {
 	const auto cstPtrToCst{ std::make_unique<const int>(100) };
 	// Can't modify anything
 
-	
+
 
 	// SubTopic: Shared Pointers using std::shared_ptr
 
@@ -268,21 +273,21 @@ int main() {
 	// This comes at a performance cost, so in general, std::unique_ptr, 
 	// should be our default choice of smart pointer.
 
-	auto shCharactOne{std::make_shared<CharacterTwo> ("Shared Character")};
+	auto shCharactOne{ std::make_shared<CharacterTwo>("Shared Character") };
 
 	// Using Share pointers
 	std::cout << (*shCharactOne).Name << '\n';
-	std::cout << shCharactOne ->Name << '\n';
+	std::cout << shCharactOne->Name << '\n';
 
 	// Accessing raw Pointer using get()
 
-	auto shPtr{ std::make_shared<Character>()};
+	auto shPtr{ std::make_shared<Character>() };
 	LogNameTwo(shPtr.get());
 
 	// Transferring Ownership using std::move
 
-	auto intShPtr{std::make_shared<int>(87)};
-	auto intShPtrTwo{std::make_shared<int>(27)};
+	auto intShPtr{ std::make_shared<int>(87) };
+	auto intShPtrTwo{ std::make_shared<int>(27) };
 
 	takeOwnerShipTwo(std::move(intShPtr));
 
@@ -292,24 +297,24 @@ int main() {
 	// Resetting OWnership -> same as unique pointer
 	// Unlike the unique pointer variation, the shared pointer’s reset() 
 	// method may not cause the object to be deleted.
-	
+
 	//intShPtr.reset();
 
 	//The reset() method can also be used to replace the managed object
 	//  with a new one of the same type(or convertible to the same type):
-	intShPtr.reset(new int(65)); 
+	intShPtr.reset(new int(65));
 
 
 	// Sharing OwnerShip
 
-	auto cpyShPtr{std::make_shared<int>(29)};
-	
+	auto cpyShPtr{ std::make_shared<int>(29) };
+
 	auto cpyShPtrTwo{ cpyShPtr };
 
 	auto cpyShPtrThree{ cpyShPtr };
 
 	// Getting the Owner Count using use_count()
-	
+
 	auto cpyShPtrFour{ cpyShPtrTwo };
 	std::cout << "Owner count: " << cpyShPtr.use_count() << '\n';
 	cpyShPtrTwo.reset();
@@ -337,18 +342,18 @@ int main() {
 
 
 	 // A character pointer pointing at a monster
-	std::shared_ptr<CharacterThree> CharacterPtrA{std::make_shared<Monster>()};
+	std::shared_ptr<CharacterThree> CharacterPtrA{ std::make_shared<Monster>() };
 	Downcast(CharacterPtrA);
 
 	// A character pointer pointing at a character
-	std::shared_ptr<CharacterThree> CharacterPtrB{ std::make_shared<CharacterThree>()};
+	std::shared_ptr<CharacterThree> CharacterPtrB{ std::make_shared<CharacterThree>() };
 	Downcast(CharacterPtrB);
 
 
 	// Owning and Pointing At Different Objects
 	// Shared pointers have an interesting feature where the object they are sharing ownership
 	//  over does not necessarily need to be the same object they are pointing at.
-    
+
 	// This is enabled through an alternative std::shared_ptr constructor, 
 	// sometimes referred to as the aliasing constructor, that accepts two arguments:
 
@@ -364,7 +369,7 @@ int main() {
 
 
 	auto UserThree{ std::make_shared<CharacterTwo>() };
-	std::shared_ptr<std::string> Name{ UserThree, & UserThree->Name};
+	std::shared_ptr<std::string> Name{ UserThree, &UserThree->Name };
 
 	std::cout << "Name: " << *Name;
 	std::cout << "\nOwners: "
@@ -372,12 +377,51 @@ int main() {
 
 
 
+	// Topic: Weak Pointers with std::weak_ptr
+
+	// Weak pointers work closely with shared pointers, with one key difference:
+	//  they do not actively participate in the ownership and lifecycle management
+	//  of the objects they point to.
+
+	//This means they have a view of the resource but do not affect its lifespan.
+	// The life of the resource is governed solely by its shared pointer owners.
+
+	//If all shared pointers to an object are destroyed, the object is deallocated,
+	//and the weak pointer becomes expired - a reference to something that no longer exists.
 
 
+	//  Creating Weak POinters
+	// Commonly, weak pointers are initialized from a shared pointer:
 
+	auto sharPtr{ std::make_shared<int>(32) };
 
+	std::weak_ptr<int> wptr{sharPtr};
 
+	//use_count() and expired() Methods
 
+	auto SharedPtr{ std::make_shared<Resource>() };
+	std::weak_ptr WeakPtr{ SharedPtr };
+
+	std::cout << "Use count: " <<WeakPtr.use_count() << '\n';
+
+	if (!WeakPtr.expired()) {
+		std::cout << "The pointer hasn't expired" << '\n';
+	}
+
+	SharedPtr.reset();
+
+	std::cout << "\nUse count: " <<	WeakPtr.use_count() << '\n';
+	if (WeakPtr.expired()) {
+		std::cout << "\nBut now it has" << '\n';
+	}
+
+	// Accessing Objects through a Weak Pointer
+
+	auto exmShPtr{ std::make_shared<int>(65) };
+	std::weak_ptr myWptr{ exmShPtr };
+
+	std::shared_ptr LockedPtr{ myWptr.lock() };
+	std::cout << "The number is: " << *LockedPtr << '\n';
 
 	return 0;
 }
