@@ -11,12 +11,27 @@ using namespace std;
 
 // Declaring Template Parameters
 
-template <int nSomeInt>
-class Pair{
+template <typename T>
+class Pair {
 public:
+	Pair(T first, T second) :
+		mFirst(first), mSecond{ second } {}
+
+	T GetFirst() const { return mFirst; }
+	void SetFirst(T first) { mFirst = first; }
+
+	T GetSecond() const { return mSecond; }
+	void SetSecond(T second) { mSecond = second; }
+
+private:
+	T mFirst;
+	T mSecond;
 };
 
 int main() {
+	Pair<int> MyPair{ 42, 5 };
 
+	std::cout << "First: " << MyPair.GetFirst()
+		<< "\nSecond: " << MyPair.GetSecond();
 	return 0;
 }
