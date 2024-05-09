@@ -7,6 +7,7 @@
 
 // By including <memory>, we gain access to the std::make_unique function
 #include <memory>
+#include <format>
 
 // Transferring ownership with std::move()
 #include <utility>
@@ -28,7 +29,7 @@ public:
 	}
 
 	~CharacterTwo() {
-		std::cout << "Deleting " << Name<< '\n' << '\n';
+		std::cout << std::format("") << "Deleting " << Name << '\n' << '\n';
 	}
 };class CharacterThree {
 public:
