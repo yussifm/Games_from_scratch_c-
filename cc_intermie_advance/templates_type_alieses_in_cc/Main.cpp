@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "Resource.h"
+#include "PairThree.h"
 using namespace std;
 
 
@@ -82,6 +84,14 @@ int main() {
 	// template is not, by itself, the name of a type.
 
 
+	// Templates and Header Files 
+	Resource<int> Object{ 42 };
+	Object.Log();
+
+	// 
+	PairThree<int, bool> MyPairThree{ 42, true };
+
+	std::cout << "First: " << MyPairThree.GetFirst();
 	
 
 
