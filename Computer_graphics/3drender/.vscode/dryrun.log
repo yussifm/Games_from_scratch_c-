@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'd:/programming/pratice_area/C_C++/games_from_scratch_with_c++/Computer_graphics/3drender'
+make: Leaving directory 'd:/programming/pratice_area/C_C++/games_from_scratch_with_c++/Computer_graphics/3drender'
+ 
+makefile:10: *** missing separator.  Stop.
+

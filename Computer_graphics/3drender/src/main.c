@@ -1,6 +1,6 @@
-#include <stdlib.h>
+#include <stdio.h>
 
-int main(void){
-    printf("Welcome to Computer Graphics Programming Setup");
+int main() {
+    printf("Hello, World!\n");
     return 0;
 }

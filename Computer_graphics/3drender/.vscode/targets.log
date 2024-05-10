@@ -1,0 +1,335 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+makefile:10: *** missing separator.  Stop.
+
+# GNU Make 4.4
+# Built for x86_64-w64-mingw32
+# Copyright (C) 1988-2022 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Fri May 10 23:59:31 2024
+
+# Variables
+
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+SYSTEMDRIVE = C:
+# environment
+JAVA_HOME = C:\Program Files\Java\jdk-19
+# environment
+PYENV = %USERPROFILE%\.pyenv\pyenv-win\
+# environment
+LC_ALL = C
+# makefile (from 'makefile', line 4)
+SRC = $(wildcard ./src/*.c)
+# makefile (from 'makefile', line 2)
+OUTPUT_DIR = build
+# makefile (from 'makefile', line 1)
+PROJECT_NAME = renderer
+# environment
+USERPROFILE = C:\Users\coded
+# environment
+LOCALAPPDATA = C:\Users\coded\AppData\Local
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = D:\programming\pratice_area\C_C++\games_from_scratch_with_c++\Computer_graphics\3drender
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\WINDOWS
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := make.exe
+# environment
+GOPATH = C:\Users\coded\go
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+JAVAHOME = C:\Program Files\Android\Android Studio\jre\bin
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22640_NUFVVJULHTBAJPBT
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# environment
+GRADLE 8 = C:\gradle-8.0.1-all\gradle-8.0.1\bin
+# environment
+IGCCSVC_DB = AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsa6A6rvjRU2f7sgMBzRLvQQAAAACAAAAAAAQZgAAAAEAACAAAADQYc+UIaSY/SEZVizfFtDrjtOyrPO8KMIBB+PfqpJINAAAAAAOgAAAAAIAACAAAAAm4m9AUiAZpdib046xvBNpJPyB/CjPogKepn9mm0s0jWAAAACVMpP9gbL9/ky5kzWkrvusMi5koY0/P69r45PSfMALYYOLUNU0n+OLWFkJIj5HirOVeePzKXC0RYWT9zI/BXgBvyLr9Zb3LgIRQJtxvxKpQupLRUtfTVsR8VtHhLVQl15AAAAAf+y5a4Fkr6wvKCnuhUt0nN7kSNaQXQhkNqIJt4CecJJlvA3f0UcHncUO2J7/z3twaMGCCkLQCdJ3mnX93kUy7Q==
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\coded\AppData\Roaming\Code\CachedData\dc96b837cf6bb4af9cd736aa3af08cf8279f7685
+# environment
+EFC_9420 = 1
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+FLUTTER = C:\flutter\bin
+# environment
+TMP = C:\Users\coded\AppData\Local\Temp
+# default
+.INCLUDE_DIRS := .
+# environment
+RUSTROVER = C:\Program Files\JetBrains\RustRover 233.14015.147\bin;
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MINGW = C:\MinGW\bin
+# environment
+FVMDART = C:\Users\coded\fvm\versions\stable\bin\
+# environment
+ONEDRIVE = C:\Users\coded\OneDrive
+# makefile
+CURDIR := d:/programming/pratice_area/C_C++/games_from_scratch_with_c++/Computer_graphics/3drender
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PROGRAMFILES = C:\Program Files
+# environment
+FVM_HOME = C:\Users\coded\fvm
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST := makefile
+# automatic
+@F = $(notdir $@)
+# environment
+PT8HOME = C:\Program Files\Cisco Packet Tracer 8.2.1
+# environment
+VSCODE_PID = 22640
+# environment
+CLION = C:\Program Files\JetBrains\CLion 2022.3.1\bin;
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# environment
+PUB = C:\Users\coded\AppData\Local\Pub\Cache\bin
+# automatic
+*F = $(notdir $*)
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# environment
+JA = C:\Program Files\Android\jdk\jdk-8.0.302.8-hotspot\jdk8u302-b08\bin
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+FVM DART = C:\Users\coded\fvm\versions\stable\bin
+# environment
+ONEDRIVECONSUMER = C:\Users\coded\OneDrive
+# default
+MAKE_HOST := x86_64-w64-mingw32
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := C:/raylib/w64devkit/bin/sh.exe
+# environment
+HOMEPATH = \Users\coded
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WEBSTORM = C:\Program Files\JetBrains\WebStorm 2022.3.1\bin;
+# environment
+WINDIR = C:\WINDOWS
+# environment
+ODIN = C:\Odin
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+7.4 = C:\gradle-7.4.2-all\gradle-7.4.2\bin
+# environment
+W64DEVKIT = C:\raylib\w64devkit\bin
+# environment
+PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Python312\Scripts\;C:\Program Files\Python312\;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Program Files\Zulu\zulu-17\bin\;C:\dart-sdk\bin;C:\Program Files\Python311\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\flutter\bin;C:\Users\coded\AppData\Local\Pub\Cache\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Android\Android Studio\jbr\bin;C:\platform-tools;C:\Program Files (x86)\Java\jre1.8.0_361;C:\Program Files\Java\jdk-19;C:\gradle-7.2-all\gradle-7.2\bin;C:\gradle-7.4.2-all\gradle-7.4.2\bin;C:\gradle-8.0.1-all\gradle-8.0.1\bin;D:\programming\vcpkg;D:\programming\vcpkg\scripts;C:\Users\coded\fvm\default\bin;C:\Users\coded\fvm\versions\stable\bin;C:\Users\coded\fvm\versions\stable\bin\;C:\Users\coded\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\flutter\bin;C:\MinGW\bin;C:\MinGW\bin\;C:\Odin;C:\Program Files\Go\bin;C:\Program Files (x86)\Incredibuild;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\CMake\bin;C:\Program Files\TortoiseSVN\bin;C:\raylib\w64devkit\bin;C:\Program Files\Git\cmd;C:\dart-sdk\bin;C:\Users\coded\.cargo\bin;C:\Users\coded\AppData\Local\Microsoft\WindowsApps;C:\Users\coded\AppData\Local\Programs\Microsoft VS Code\bin;C:\flutter\bin;C:\Users\coded\AppData\Local\Pub\Cache\bin;C:\Users\coded\.dotnet\tools;C:\Users\coded\AppData\Roaming\npm;C:\Program Files\JetBrains\CLion 2022.3.1\bin;C:\Program Files\JetBrains\DataGrip 2022.3.3\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.1\bin;C:\Users\coded\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\JetBrains\PyCharm 2022.3.1\bin;C:\Program Files\JetBrains\WebStorm 2022.3.1\bin;C:\Program Files\Android\Android Studio\jbr\bin;C:\platform-tools;C:\Users\coded\.fly\bin;C:\Program Files\Java\jdk-19\bin;C:\Program Files\Java\jdk-19;C:\Program Files (x86)\Java\jre1.8.0_361;C:\gradle-7.4.2-all\gradle-7.4.2\bin;C:\gradle-7.2-all\gradle-7.2\bin;C:\gradle-8.0.1-all\gradle-8.0.1\bin;C:\Users\coded\.pyenv\pyenv-win\bin;C:\Users\coded\.pyenv\pyenv-win\shims;D:\programming\vcpkg;D:\programming\vcpkg\scripts;C:\tools\dart;C:\Users\coded\.shorebird\bin;C:\Users\coded\AppData\Local\Microsoft\WinGet\Links;C:\Odin;C:\Users\coded\go\bin;C:\tools\neovim\nvim-win64\bin;C:\Users\coded\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\JetBrains\RustRover 233.14015.147\bin;;C:\flutter\bin;
+# environment
+ZES_ENABLE_SYSMAN = 1
+# environment
+COMPUTERNAME = CODEDSTUDIOS
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PYCHARM = C:\Program Files\JetBrains\PyCharm 2022.3.1\bin;
+# environment
+PROMPT = $P$G
+# environment
+DART = C:\dart-sdk\bin
+# environment
+CHOCOLATEYLASTPATHUPDATE = 133475050596250237
+# environment
+INTELLIJ IDEA = C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.1\bin;
+# environment
+LOGONSERVER = \\CODEDSTUDIOS
+# environment
+USERNAME = coded
+# environment
+COMMONPROGRAMFILES = C:\Program Files\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = CODEDSTUDIOS
+# environment
+GRADLE = C:\gradle-7.2-all\gradle-7.2\bin
+# environment
+OS = Windows_NT
+# makefile
+.DEFAULT_GOAL := default
+# environment
+NVM_HOME = C:\Users\coded\AppData\Roaming\nvm
+# default
+MAKE_VERSION := 4.4
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+USERDOMAIN_ROAMINGPROFILE = CODEDSTUDIOS
+# environment
+NUMBER_OF_PROCESSORS = 8
+# environment
+PUBLIC = C:\Users\Public
+# environment
+APPDATA = C:\Users\coded\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+NVM_SYMLINK = C:\Program Files\nodejs
+# environment
+PROCESSOR_ARCHITECTURE = AMD64
+# environment
+DATAGRIP = C:\Program Files\JetBrains\DataGrip 2022.3.3\bin;
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\coded\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\620d16ad-1.89.1-main-sock
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs notintermediate shell-export archives jobserver output-sync
+# environment
+PROCESSOR_REVISION = 8c01
+# environment
+CHOCOLATEYTOOLSLOCATION = C:\tools
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+# variable set hash-table stats:
+# Load=127/1024=12%, Rehash=0, Collisions=14/140=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (key d:/programming/pratice_area/C_C++/games_from_scratch_with_c++/Computer_graphics/3drender, mtime 1715385569): 9 files, no impossibilities.
+
+# 9 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+default:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 7):
+	gcc -Wall -std=c99 $(SRC) -o $(OUTPUT_DIR)/$(PROJECT_NAME)
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+run:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=6/1024=1%, Rehash=0, Collisions=0/7=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 14 / storage = 89 B / avg = 6 B
+# current buf: size = 8162 B / used = 89 B / count = 14 / avg = 6 B
+
+# strcache performance: lookups = 20 / hit rate = 30%
+# hash-table stats:
+# Load=14/8192=0%, Rehash=0, Collisions=0/20=0%
+# Finished Make data base on Fri May 10 23:59:31 2024
+
+ 
