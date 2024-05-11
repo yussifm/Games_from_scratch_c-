@@ -10,5 +10,8 @@ all:
 run:
 	.\$(OUTPUT_DIR)\$(PROJECT_NAME)
 
+run-L:
+	./$(OUTPUT_DIR)/$(PROJECT_NAME)
+
 
 

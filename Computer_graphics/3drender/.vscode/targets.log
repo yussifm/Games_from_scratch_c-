@@ -6,10 +6,12 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat May 11 20:00:56 2024
+# Make data base, printed on Sat May 11 21:50:55 2024
 
 # Variables
 
+# environment
+__NEXT_PRIVATE_RUNTIME_TYPE = 
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -23,7 +25,7 @@ SRC = $(wildcard ./src/*.c)
 # makefile (from 'makefile', line 2)
 OUTPUT_DIR = build
 # makefile (from 'makefile', line 1)
-PROJECT_NAME = renderer
+PROJECT_NAME = renderEngine
 # environment
 USERPROFILE = C:\Users\coded
 # environment
@@ -50,6 +52,8 @@ GOPATH = C:\Users\coded\go
 JAVAHOME = C:\Program Files\Android\Android Studio\jre\bin
 # environment
 CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_24700_LXQJRHDJEHMXZVSS
+# environment
+NODE_ENV = production
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -91,9 +95,13 @@ ONEDRIVE = C:\Users\coded\OneDrive
 # makefile
 CURDIR := d:/programming/pratice_area/C_C++/games_from_scratch_with_c++/Computer_graphics/3drender
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
 # automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PORT = 54112
 # environment
 PROGRAMFILES = C:\Program Files
 # environment
@@ -118,6 +126,8 @@ VSCODE_PID = 24700
 CLION = C:\Program Files\JetBrains\CLion 2022.3.1\bin;
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# environment
+NEXT_DEPLOYMENT_ID = 
 # environment
 PUB = C:\Users\coded\AppData\Local\Pub\Cache\bin
 # automatic
@@ -146,6 +156,8 @@ MAKECMDGOALS := all
 DRIVERDATA = C:\Windows\System32\Drivers\DriverData
 # environment
 COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+__NEXT_OPTIMIZE_FONTS = true
 # environment
 WEBSTORM = C:\Program Files\JetBrains\WebStorm 2022.3.1\bin;
 # environment
@@ -198,6 +210,8 @@ PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 USERDOMAIN = CODEDSTUDIOS
+# environment
+__NEXT_PRIVATE_ORIGIN = http://localhost:54112
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -222,6 +236,8 @@ PUBLIC = C:\Users\Public
 APPDATA = C:\Users\coded\AppData\Roaming
 # environment
 HOMEDRIVE = C:
+# environment
+__NEXT_PRIVATE_STANDALONE_CONFIG = {"env":{},"webpack":null,"eslint":{"ignoreDuringBuilds":false},"typescript":{"ignoreBuildErrors":false,"tsconfigPath":"tsconfig.json"},"distDir":"./.next","cleanDistDir":true,"assetPrefix":"","configOrigin":"next.config.js","useFileSystemPublicRoutes":true,"generateEtags":true,"pageExtensions":["tsx","ts","jsx","js"],"poweredByHeader":true,"compress":true,"analyticsId":"","images":{"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","loaderFile":"","domains":[],"disableStaticImages":false,"minimumCacheTTL":60,"formats":["image/webp"],"dangerouslyAllowSVG":false,"contentSecurityPolicy":"script-src 'none'; frame-src 'none'; sandbox;","contentDispositionType":"inline","remotePatterns":[],"unoptimized":false},"devIndicators":{"buildActivity":true,"buildActivityPosition":"bottom-right"},"onDemandEntries":{"maxInactiveAge":60000,"pagesBufferLength":5},"amp":{"canonicalBase":""},"basePath":"","sassOptions":{},"trailingSlash":false,"i18n":null,"productionBrowserSourceMaps":false,"optimizeFonts":true,"excludeDefaultMomentLocales":true,"serverRuntimeConfig":{},"publicRuntimeConfig":{},"reactProductionProfiling":false,"reactStrictMode":null,"httpAgentOptions":{"keepAlive":true},"outputFileTracing":true,"staticPageGenerationTimeout":60,"swcMinify":true,"output":"standalone","modularizeImports":{"@mui/icons-material":{"transform":"@mui/icons-material/{{member}}"},"date-fns":{"transform":"date-fns/{{member}}"},"lodash":{"transform":"lodash/{{member}}"},"lodash-es":{"transform":"lodash-es/{{member}}"},"ramda":{"transform":"ramda/es/{{member}}"},"react-bootstrap":{"transform":{"useAccordionButton":"modularize-import-loader?name=useAccordionButton&from=named&as=default!react-bootstrap/AccordionButton","*":"react-bootstrap/{{member}}"}},"antd":{"transform":"antd/lib/{{kebabCase member}}"},"ahooks":{"transform":{"createUpdateEffect":"modularize-import-loader?name=createUpdateEffect&from=named&as=default!ahooks/es/createUpdateEffect","*":"ahooks/es/{{member}}"}},"@ant-design/icons":{"transform":{"IconProvider":"modularize-import-loader?name=IconProvider&from=named&as=default!@ant-design/icons","createFromIconfontCN":"@ant-design/icons/es/components/IconFont","getTwoToneColor":"modularize-import-loader?name=getTwoToneColor&from=named&as=default!@ant-design/icons/es/components/twoTonePrimaryColor","setTwoToneColor":"modularize-import-loader?name=setTwoToneColor&from=named&as=default!@ant-design/icons/es/components/twoTonePrimaryColor","*":"@ant-design/icons/lib/icons/{{member}}"}},"next/server":{"transform":"next/dist/server/web/exports/{{ kebabCase member }}"}},"experimental":{"serverMinification":true,"serverSourceMaps":false,"caseSensitiveRoutes":false,"useDeploymentId":false,"useDeploymentIdServerActions":false,"clientRouterFilter":true,"clientRouterFilterRedirects":false,"fetchCacheKeyPrefix":"","middlewarePrefetch":"flexible","optimisticClientCache":true,"manualClientBasePath":false,"cpus":9,"memoryBasedWorkersCount":false,"isrFlushToDisk":true,"workerThreads":false,"optimizeCss":false,"nextScriptWorkers":false,"scrollRestoration":false,"externalDir":false,"disableOptimizedLoading":false,"gzipSize":true,"craCompat":false,"esmExternals":true,"isrMemoryCacheSize":52428800,"fullySpecified":false,"outputFileTracingRoot":"/Users/maol/WebstormProjects/Trabajo/codegpt-nextjs","swcTraceProfiling":false,"forceSwcTransforms":false,"largePageDataBytes":128000,"adjustFontFallbacks":false,"adjustFontFallbacksWithSizeAdjust":false,"typedRoutes":false,"instrumentationHook":false,"bundlePagesExternals":false,"optimizePackageImports":["lucide-react","@headlessui/react","@headlessui-float/react","@heroicons/react/20/solid","@heroicons/react/24/solid","@heroicons/react/24/outline","@visx/visx","@tremor/react","rxjs","@mui/material","@mui/icons-material","recharts","react-use","@material-ui/core","@material-ui/icons","@tabler/icons-react","mui-core","react-icons/ai","react-icons/bi","react-icons/bs","react-icons/cg","react-icons/ci","react-icons/di","react-icons/fa","react-icons/fa6","react-icons/fc","react-icons/fi","react-icons/gi","react-icons/go","react-icons/gr","react-icons/hi","react-icons/hi2","react-icons/im","react-icons/io","react-icons/io5","react-icons/lia","react-icons/lib","react-icons/lu","react-icons/md","react-icons/pi","react-icons/ri","react-icons/rx","react-icons/si","react-icons/sl","react-icons/tb","react-icons/tfi","react-icons/ti","react-icons/vsc","react-icons/wi"],"trustHostHeader":false,"isExperimentalCompile":false},"configFileName":"next.config.js"}
 # environment
 NVM_SYMLINK = C:\Program Files\nodejs
 # environment
@@ -261,7 +277,7 @@ CHOCOLATEYTOOLSLOCATION = C:\tools
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 # variable set hash-table stats:
-# Load=125/1024=12%, Rehash=0, Collisions=19/160=12%
+# Load=133/1024=13%, Rehash=0, Collisions=25/168=15%
 
 # Pattern-specific Variable Values
 
@@ -269,7 +285,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 
 # Directories
 
-# . (key d:/programming/pratice_area/C_C++/games_from_scratch_with_c++/Computer_graphics/3drender, mtime 1715385569): 9 files, no impossibilities.
+# . (key d:/programming/pratice_area/C_C++/games_from_scratch_with_c++/Computer_graphics/3drender, mtime 1715460742): 9 files, no impossibilities.
 # ./src (key d:/programming/pratice_area/C_C++/games_from_scratch_with_c++/Computer_graphics/3drender/src, mtime 1715382074): 3 files, no impossibilities.
 
 # 12 files, no impossibilities in 2 directories.
@@ -279,6 +295,13 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 # No implicit rules.
 
 # Files
+
+run-L:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 14):
+	./$(OUTPUT_DIR)/$(PROJECT_NAME)
 
 # Not a target:
 .DEFAULT:
@@ -325,7 +348,7 @@ run:
 makefile:
 #  Implicit rule search has been done.
 #  File is secondary (prerequisite of .SECONDARY).
-#  Last modified 2024-05-11 00:07:34
+#  Last modified 2024-05-11 21:49:45
 #  File has been updated.
 #  Successfully updated.
 
@@ -336,19 +359,19 @@ makefile:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=5/1024=0%, Rehash=0, Collisions=0/18=0%
+# Load=6/1024=1%, Rehash=0, Collisions=0/19=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 15 / storage = 94 B / avg = 6 B
-# current buf: size = 8162 B / used = 94 B / count = 15 / avg = 6 B
+# strcache buffers: 1 (0) / strings = 16 / storage = 103 B / avg = 6 B
+# current buf: size = 8162 B / used = 103 B / count = 16 / avg = 6 B
 
-# strcache performance: lookups = 26 / hit rate = 42%
+# strcache performance: lookups = 28 / hit rate = 42%
 # hash-table stats:
-# Load=15/8192=0%, Rehash=0, Collisions=0/26=0%
-# Finished Make data base on Sat May 11 20:00:56 2024
+# Load=16/8192=0%, Rehash=0, Collisions=0/28=0%
+# Finished Make data base on Sat May 11 21:50:55 2024
 
  
