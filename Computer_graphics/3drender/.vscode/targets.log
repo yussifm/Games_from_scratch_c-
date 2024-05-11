@@ -6,14 +6,10 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat May 11 00:08:00 2024
+# Make data base, printed on Sat May 11 20:00:56 2024
 
 # Variables
 
-# environment
-FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
-# environment
-__NEXT_PRIVATE_RUNTIME_TYPE = 
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -53,11 +49,7 @@ GOPATH = C:\Users\coded\go
 # environment
 JAVAHOME = C:\Program Files\Android\Android Studio\jre\bin
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22640_NUFVVJULHTBAJPBT
-# environment
-NODE_ENV = production
-# environment
-FPS_BROWSER_USER_PROFILE_STRING = Default
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_24700_LXQJRHDJEHMXZVSS
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -99,13 +91,9 @@ ONEDRIVE = C:\Users\coded\OneDrive
 # makefile
 CURDIR := d:/programming/pratice_area/C_C++/games_from_scratch_with_c++/Computer_graphics/3drender
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
-# environment
-VSCODE_L10N_BUNDLE_LOCATION = 
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
-# environment
-PORT = 54112
 # environment
 PROGRAMFILES = C:\Program Files
 # environment
@@ -125,13 +113,11 @@ MAKEFILE_LIST := makefile
 # environment
 PT8HOME = C:\Program Files\Cisco Packet Tracer 8.2.1
 # environment
-VSCODE_PID = 22640
+VSCODE_PID = 24700
 # environment
 CLION = C:\Program Files\JetBrains\CLion 2022.3.1\bin;
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
-# environment
-NEXT_DEPLOYMENT_ID = 
 # environment
 PUB = C:\Users\coded\AppData\Local\Pub\Cache\bin
 # automatic
@@ -161,8 +147,6 @@ DRIVERDATA = C:\Windows\System32\Drivers\DriverData
 # environment
 COMSPEC = C:\WINDOWS\system32\cmd.exe
 # environment
-__NEXT_OPTIMIZE_FONTS = true
-# environment
 WEBSTORM = C:\Program Files\JetBrains\WebStorm 2022.3.1\bin;
 # environment
 WINDIR = C:\WINDOWS
@@ -177,7 +161,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 W64DEVKIT = C:\raylib\w64devkit\bin
 # environment
-PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Python312\Scripts\;C:\Program Files\Python312\;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Program Files\Zulu\zulu-17\bin\;C:\dart-sdk\bin;C:\Program Files\Python311\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\flutter\bin;C:\Users\coded\AppData\Local\Pub\Cache\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Android\Android Studio\jbr\bin;C:\platform-tools;C:\Program Files (x86)\Java\jre1.8.0_361;C:\Program Files\Java\jdk-19;C:\gradle-7.2-all\gradle-7.2\bin;C:\gradle-7.4.2-all\gradle-7.4.2\bin;C:\gradle-8.0.1-all\gradle-8.0.1\bin;D:\programming\vcpkg;D:\programming\vcpkg\scripts;C:\Users\coded\fvm\default\bin;C:\Users\coded\fvm\versions\stable\bin;C:\Users\coded\fvm\versions\stable\bin\;C:\Users\coded\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\flutter\bin;C:\MinGW\bin;C:\MinGW\bin\;C:\Odin;C:\Program Files\Go\bin;C:\Program Files (x86)\Incredibuild;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\CMake\bin;C:\Program Files\TortoiseSVN\bin;C:\raylib\w64devkit\bin;C:\Program Files\Git\cmd;C:\dart-sdk\bin;C:\Users\coded\.cargo\bin;C:\Users\coded\AppData\Local\Microsoft\WindowsApps;C:\Users\coded\AppData\Local\Programs\Microsoft VS Code\bin;C:\flutter\bin;C:\Users\coded\AppData\Local\Pub\Cache\bin;C:\Users\coded\.dotnet\tools;C:\Users\coded\AppData\Roaming\npm;C:\Program Files\JetBrains\CLion 2022.3.1\bin;C:\Program Files\JetBrains\DataGrip 2022.3.3\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.1\bin;C:\Users\coded\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\JetBrains\PyCharm 2022.3.1\bin;C:\Program Files\JetBrains\WebStorm 2022.3.1\bin;C:\Program Files\Android\Android Studio\jbr\bin;C:\platform-tools;C:\Users\coded\.fly\bin;C:\Program Files\Java\jdk-19\bin;C:\Program Files\Java\jdk-19;C:\Program Files (x86)\Java\jre1.8.0_361;C:\gradle-7.4.2-all\gradle-7.4.2\bin;C:\gradle-7.2-all\gradle-7.2\bin;C:\gradle-8.0.1-all\gradle-8.0.1\bin;C:\Users\coded\.pyenv\pyenv-win\bin;C:\Users\coded\.pyenv\pyenv-win\shims;D:\programming\vcpkg;D:\programming\vcpkg\scripts;C:\tools\dart;C:\Users\coded\.shorebird\bin;C:\Users\coded\AppData\Local\Microsoft\WinGet\Links;C:\Odin;C:\Users\coded\go\bin;C:\tools\neovim\nvim-win64\bin;C:\Users\coded\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\JetBrains\RustRover 233.14015.147\bin;;C:\flutter\bin;
+PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Python312\Scripts\;C:\Program Files\Python312\;C:\Program Files\Microsoft\jdk-11.0.16.101-hotspot\bin;C:\Program Files\Zulu\zulu-17\bin\;C:\dart-sdk\bin;C:\Program Files\Python311\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\flutter\bin;C:\Users\coded\AppData\Local\Pub\Cache\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Android\Android Studio\jbr\bin;C:\platform-tools;C:\Program Files (x86)\Java\jre1.8.0_361;C:\Program Files\Java\jdk-19;C:\gradle-7.2-all\gradle-7.2\bin;C:\gradle-7.4.2-all\gradle-7.4.2\bin;C:\gradle-8.0.1-all\gradle-8.0.1\bin;D:\programming\vcpkg;D:\programming\vcpkg\scripts;C:\Users\coded\fvm\default\bin;C:\Users\coded\fvm\versions\stable\bin;C:\Users\coded\fvm\versions\stable\bin\;C:\Users\coded\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\flutter\bin;C:\MinGW\bin;C:\MinGW\bin\;C:\Odin;C:\Program Files\Go\bin;C:\Program Files (x86)\Incredibuild;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\CMake\bin;C:\Program Files\TortoiseSVN\bin;C:\raylib\w64devkit\bin;C:\Program Files\Git\cmd;C:\dart-sdk\bin;C:\Users\coded\AppData\Local\Microsoft\WindowsApps;C:\Users\coded\AppData\Local\Programs\Microsoft VS Code\bin;C:\flutter\bin;C:\Users\coded\AppData\Local\Pub\Cache\bin;C:\Users\coded\.dotnet\tools;C:\Users\coded\AppData\Roaming\npm;C:\Program Files\JetBrains\CLion 2022.3.1\bin;C:\Program Files\JetBrains\DataGrip 2022.3.3\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.1\bin;C:\Users\coded\AppData\Local\JetBrains\Toolbox\scripts;C:\Program Files\JetBrains\PyCharm 2022.3.1\bin;C:\Program Files\JetBrains\WebStorm 2022.3.1\bin;C:\Program Files\Android\Android Studio\jbr\bin;C:\platform-tools;C:\Users\coded\.fly\bin;C:\Program Files\Java\jdk-19\bin;C:\Program Files\Java\jdk-19;C:\Program Files (x86)\Java\jre1.8.0_361;C:\gradle-7.4.2-all\gradle-7.4.2\bin;C:\gradle-7.2-all\gradle-7.2\bin;C:\gradle-8.0.1-all\gradle-8.0.1\bin;C:\Users\coded\.pyenv\pyenv-win\bin;C:\Users\coded\.pyenv\pyenv-win\shims;D:\programming\vcpkg;D:\programming\vcpkg\scripts;C:\tools\dart;C:\Users\coded\.shorebird\bin;C:\Users\coded\AppData\Local\Microsoft\WinGet\Links;C:\Odin;C:\Users\coded\go\bin;C:\tools\neovim\nvim-win64\bin;C:\Users\coded\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\JetBrains\RustRover 233.14015.147\bin;;C:\flutter\bin
 # environment
 ZES_ENABLE_SYSMAN = 1
 # environment
@@ -214,8 +198,6 @@ PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 USERDOMAIN = CODEDSTUDIOS
-# environment
-__NEXT_PRIVATE_ORIGIN = http://localhost:54112
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -240,8 +222,6 @@ PUBLIC = C:\Users\Public
 APPDATA = C:\Users\coded\AppData\Roaming
 # environment
 HOMEDRIVE = C:
-# environment
-__NEXT_PRIVATE_STANDALONE_CONFIG = {"env":{},"webpack":null,"eslint":{"ignoreDuringBuilds":false},"typescript":{"ignoreBuildErrors":false,"tsconfigPath":"tsconfig.json"},"distDir":"./.next","cleanDistDir":true,"assetPrefix":"","configOrigin":"next.config.js","useFileSystemPublicRoutes":true,"generateEtags":true,"pageExtensions":["tsx","ts","jsx","js"],"poweredByHeader":true,"compress":true,"analyticsId":"","images":{"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","loaderFile":"","domains":[],"disableStaticImages":false,"minimumCacheTTL":60,"formats":["image/webp"],"dangerouslyAllowSVG":false,"contentSecurityPolicy":"script-src 'none'; frame-src 'none'; sandbox;","contentDispositionType":"inline","remotePatterns":[],"unoptimized":false},"devIndicators":{"buildActivity":true,"buildActivityPosition":"bottom-right"},"onDemandEntries":{"maxInactiveAge":60000,"pagesBufferLength":5},"amp":{"canonicalBase":""},"basePath":"","sassOptions":{},"trailingSlash":false,"i18n":null,"productionBrowserSourceMaps":false,"optimizeFonts":true,"excludeDefaultMomentLocales":true,"serverRuntimeConfig":{},"publicRuntimeConfig":{},"reactProductionProfiling":false,"reactStrictMode":null,"httpAgentOptions":{"keepAlive":true},"outputFileTracing":true,"staticPageGenerationTimeout":60,"swcMinify":true,"output":"standalone","modularizeImports":{"@mui/icons-material":{"transform":"@mui/icons-material/{{member}}"},"date-fns":{"transform":"date-fns/{{member}}"},"lodash":{"transform":"lodash/{{member}}"},"lodash-es":{"transform":"lodash-es/{{member}}"},"ramda":{"transform":"ramda/es/{{member}}"},"react-bootstrap":{"transform":{"useAccordionButton":"modularize-import-loader?name=useAccordionButton&from=named&as=default!react-bootstrap/AccordionButton","*":"react-bootstrap/{{member}}"}},"antd":{"transform":"antd/lib/{{kebabCase member}}"},"ahooks":{"transform":{"createUpdateEffect":"modularize-import-loader?name=createUpdateEffect&from=named&as=default!ahooks/es/createUpdateEffect","*":"ahooks/es/{{member}}"}},"@ant-design/icons":{"transform":{"IconProvider":"modularize-import-loader?name=IconProvider&from=named&as=default!@ant-design/icons","createFromIconfontCN":"@ant-design/icons/es/components/IconFont","getTwoToneColor":"modularize-import-loader?name=getTwoToneColor&from=named&as=default!@ant-design/icons/es/components/twoTonePrimaryColor","setTwoToneColor":"modularize-import-loader?name=setTwoToneColor&from=named&as=default!@ant-design/icons/es/components/twoTonePrimaryColor","*":"@ant-design/icons/lib/icons/{{member}}"}},"next/server":{"transform":"next/dist/server/web/exports/{{ kebabCase member }}"}},"experimental":{"serverMinification":true,"serverSourceMaps":false,"caseSensitiveRoutes":false,"useDeploymentId":false,"useDeploymentIdServerActions":false,"clientRouterFilter":true,"clientRouterFilterRedirects":false,"fetchCacheKeyPrefix":"","middlewarePrefetch":"flexible","optimisticClientCache":true,"manualClientBasePath":false,"cpus":9,"memoryBasedWorkersCount":false,"isrFlushToDisk":true,"workerThreads":false,"optimizeCss":false,"nextScriptWorkers":false,"scrollRestoration":false,"externalDir":false,"disableOptimizedLoading":false,"gzipSize":true,"craCompat":false,"esmExternals":true,"isrMemoryCacheSize":52428800,"fullySpecified":false,"outputFileTracingRoot":"/Users/maol/WebstormProjects/Trabajo/codegpt-nextjs","swcTraceProfiling":false,"forceSwcTransforms":false,"largePageDataBytes":128000,"adjustFontFallbacks":false,"adjustFontFallbacksWithSizeAdjust":false,"typedRoutes":false,"instrumentationHook":false,"bundlePagesExternals":false,"optimizePackageImports":["lucide-react","@headlessui/react","@headlessui-float/react","@heroicons/react/20/solid","@heroicons/react/24/solid","@heroicons/react/24/outline","@visx/visx","@tremor/react","rxjs","@mui/material","@mui/icons-material","recharts","react-use","@material-ui/core","@material-ui/icons","@tabler/icons-react","mui-core","react-icons/ai","react-icons/bi","react-icons/bs","react-icons/cg","react-icons/ci","react-icons/di","react-icons/fa","react-icons/fa6","react-icons/fc","react-icons/fi","react-icons/gi","react-icons/go","react-icons/gr","react-icons/hi","react-icons/hi2","react-icons/im","react-icons/io","react-icons/io5","react-icons/lia","react-icons/lib","react-icons/lu","react-icons/md","react-icons/pi","react-icons/ri","react-icons/rx","react-icons/si","react-icons/sl","react-icons/tb","react-icons/tfi","react-icons/ti","react-icons/vsc","react-icons/wi"],"trustHostHeader":false,"isExperimentalCompile":false},"configFileName":"next.config.js"}
 # environment
 NVM_SYMLINK = C:\Program Files\nodejs
 # environment
@@ -281,7 +261,7 @@ CHOCOLATEYTOOLSLOCATION = C:\tools
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 # variable set hash-table stats:
-# Load=135/1024=13%, Rehash=0, Collisions=26/170=15%
+# Load=125/1024=12%, Rehash=0, Collisions=19/160=12%
 
 # Pattern-specific Variable Values
 
@@ -369,6 +349,6 @@ makefile:
 # strcache performance: lookups = 26 / hit rate = 42%
 # hash-table stats:
 # Load=15/8192=0%, Rehash=0, Collisions=0/26=0%
-# Finished Make data base on Sat May 11 00:08:00 2024
+# Finished Make data base on Sat May 11 20:00:56 2024
 
  

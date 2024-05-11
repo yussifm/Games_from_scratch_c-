@@ -1,4 +1,4 @@
-PROJECT_NAME = renderer
+PROJECT_NAME = renderEngine
 OUTPUT_DIR = build
 
 SRC = $(wildcard ./src/*.c)
