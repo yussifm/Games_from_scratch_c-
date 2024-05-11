@@ -7,7 +7,7 @@ default:
 	gcc -Wall -std=c99 $(SRC) -o $(OUTPUT_DIR)/$(PROJECT_NAME)
 
 run:
-     .\$(OUTPUT_DIR)\$(PROJECT_NAME)
+    .\$(OUTPUT_DIR)\$(PROJECT_NAME)
 
 
 
