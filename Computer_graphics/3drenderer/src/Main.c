@@ -9,6 +9,7 @@ SDL_Window* p_window = NULL;
 SDL_Renderer* p_renderer = NULL;
 //
 Uint32* Uint32_color_buffer = NULL;
+SDL_Texture* p_color_buffer_texture = NULL;
 
 //
 int i_Windown_width = 800;
@@ -21,6 +22,8 @@ void update(void);
 void render(void);
 void process_input(void);
 void destory_window(void);
+void clear_color_buffer(uint32_t color);
+void render_color_buffer(void);
 
 
 // Main Function
@@ -101,18 +104,63 @@ void process_input(void) {
 		break;
 	}
 }
+//
 void setup(void) {
+
+	// Allocate the required memory in bytes to hold/ store the color buffer
 	Uint32_color_buffer =(Uint32*) malloc(sizeof(Uint32) * i_Windown_width * i_Windown_height);
+
+	// Creating a SDL texture that is used to display the color buffer
+	p_color_buffer_texture = SDL_CreateTexture(
+	p_renderer,
+	SDL_PIXELFORMAT_ARGB8888, 
+	SDL_TEXTUREACCESS_STREAMING, 
+	i_Windown_width, 
+	i_Windown_height
+	);
 }
+//
 void update(void) {}
+//
+void render_color_buffer(void) {
+	SDL_UpdateTexture(
+	p_color_buffer_texture, 
+	NULL, 
+	Uint32_color_buffer, 
+	(int)(i_Windown_width * sizeof(uint32_t))
+
+);
+
+	SDL_RenderCopy(
+      p_renderer,
+      p_color_buffer_texture, 
+      NULL, 
+      NULL
+	);
+
+}
+// 
+//
+void clear_color_buffer(uint32_t color) {
+	for (int y = 0; y < i_Windown_height; y++) {
+		for (int x = 0; x < i_Windown_width; x++) {
+          Uint32_color_buffer[(i_Windown_width * y) + x] = color;
+		}
+	}
+}
+//
 void render(void) {
 	SDL_SetRenderDrawColor(p_renderer, 255, 0, 0, 255);
 	SDL_RenderClear(p_renderer); 
 
-	//....
+	render_color_buffer();
+	clear_color_buffer(0xFFFFFF00);
+	
 	SDL_RenderPresent(p_renderer);
 }
 
+
+//
 void destory_window(void) {
 	free(Uint32_color_buffer);
 	SDL_DestroyRenderer(p_renderer);
