@@ -1,18 +1,26 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <stdbool.h>
 #include <SDL.h>
 
 // Global Variables
 bool is_running = false;
-SDL_Window* window = NULL;
-SDL_Renderer* renderer = NULL;
+SDL_Window* p_window = NULL;
+SDL_Renderer* p_renderer = NULL;
+//
+Uint32* Uint32_color_buffer = NULL;
+
+//
+int i_Windown_width = 800;
+int i_Windown_height = 600;
 
 // Function Prototypes/Declarations
-bool initialize_window(void);
+bool initialize_window(void); 
 void setup(void);
 void update(void);
 void render(void);
 void process_input(void);
+void destory_window(void);
 
 
 // Main Function
@@ -33,6 +41,9 @@ int main(int argc, char* argv[]) {
 
 	}
 
+	// Destroying SDL Window
+	destory_window();
+
 	return 0;
 }
 
@@ -46,24 +57,24 @@ bool initialize_window(void) {
 	}
 	  // Create a SDL window
 	
-     window = SDL_CreateWindow(
+     p_window = SDL_CreateWindow(
 		 NULL, 
 		 SDL_WINDOWPOS_CENTERED,
 		 SDL_WINDOWPOS_CENTERED, 
-		 800, 
-		 600,
+		 i_Windown_width, 
+		 i_Windown_height,
 		 SDL_WINDOW_BORDERLESS
 		 );
 	  // if windwo contains content or is a valid pointer
 
-	 if (!window) {
+	 if (!p_window) {
 		 fprintf(stderr, "Error Creating SDl Window. \n");
 		 return false;
 	 }
 
 	 // Creating SDl renderer
-	 renderer = SDL_CreateRenderer(window, -1, 0);
-	 if (!renderer) {
+	p_renderer = SDL_CreateRenderer(p_window, -1, 0);
+	 if (!p_renderer) {
 		 fprintf(stderr, "Error Creating SDl Renderer. \n");
 		 return false;
 	 }
@@ -90,12 +101,21 @@ void process_input(void) {
 		break;
 	}
 }
-void setup(void) {}
+void setup(void) {
+	Uint32_color_buffer =(Uint32*) malloc(sizeof(Uint32) * i_Windown_width * i_Windown_height);
+}
 void update(void) {}
 void render(void) {
-	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-	SDL_RenderClear(renderer); 
+	SDL_SetRenderDrawColor(p_renderer, 255, 0, 0, 255);
+	SDL_RenderClear(p_renderer); 
 
 	//....
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(p_renderer);
+}
+
+void destory_window(void) {
+	free(Uint32_color_buffer);
+	SDL_DestroyRenderer(p_renderer);
+	SDL_DestroyWindow(p_window);
+	SDL_Quit();
 }
