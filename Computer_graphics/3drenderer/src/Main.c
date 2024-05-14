@@ -24,6 +24,7 @@ void process_input(void);
 void destory_window(void);
 void clear_color_buffer(uint32_t color);
 void render_color_buffer(void);
+void draw_grid(void);
 
 
 // Main Function
@@ -153,6 +154,17 @@ void render_color_buffer(void) {
 
 }
 // 
+// draw grid on Screen
+void draw_grid(void) {
+	for (int y = 0; y < i_Windown_height; y++) {
+		for (int x = 0; x < i_Windown_width; x++) {
+			if (x % 40 == 0 || y % 40 == 0) {
+            Uint32_color_buffer[(i_Windown_width * y) + x] = 0xFF333333;
+		   }
+		}
+	}
+	
+}
 //
 void clear_color_buffer(uint32_t color) {
 	for (int y = 0; y < i_Windown_height; y++) {
@@ -166,8 +178,9 @@ void render(void) {
 	SDL_SetRenderDrawColor(p_renderer, 255, 0, 0, 255);
 	SDL_RenderClear(p_renderer); 
 
+	draw_grid();
 	render_color_buffer();
-	clear_color_buffer(0xFFFFFF00);
+	clear_color_buffer(0xFF000000);
 	
 	SDL_RenderPresent(p_renderer);
 }
