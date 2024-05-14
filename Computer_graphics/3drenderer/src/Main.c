@@ -92,6 +92,8 @@ bool initialize_window(void) {
 		 fprintf(stderr, "Error Creating SDl Renderer. \n");
 		 return false;
 	 }
+
+	 SDL_SetWindowFullscreen(p_window, SDL_WINDOW_FULLSCREEN);
 	 return true;
 
 
