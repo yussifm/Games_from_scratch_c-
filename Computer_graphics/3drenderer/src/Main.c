@@ -58,6 +58,17 @@ bool initialize_window(void) {
 		fprintf(stderr, "Error initializing SDl. \n");
 		return false;
 	}
+
+	// Use SDL to query what is the fullscreen max
+	
+	SDL_DisplayMode display_mode;
+	SDL_GetCurrentDisplayMode(0, &display_mode);
+
+	// reassigning the width and hight
+	i_Windown_width = display_mode.w;
+	i_Windown_height = display_mode.h;
+
+
 	  // Create a SDL window
 	
      p_window = SDL_CreateWindow(
