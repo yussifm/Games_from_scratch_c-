@@ -78,7 +78,7 @@ void render_color_buffer(void) {
 }
 // 
 void draw_pixel(int x, int y, uint32_t color) {
-	if (x < i_Windown_width && y < i_Windown_height) {
+	if (x >= 0 &&x < i_Windown_width && y >= 0 && y < i_Windown_height) {
 		Uint32_color_buffer[(i_Windown_width * y) + x] = color;
  }
 	
@@ -102,7 +102,10 @@ void draw_grid(void) {
 void draw_react(int x, int y, int w, int h, uint32_t color) {
 	for (int i = x; i < x + w; i++) {
 		for (int j = y; j < y + h; j++) {
-			Uint32_color_buffer[(i_Windown_width * j) + i] = color;
+			int current_x = x + i;
+			int current_y = y + j;
+			//Uint32_color_buffer[(i_Windown_width * j) + i] = color;
+			draw_pixel(current_x, current_y, color);
 		}
 	}
 }
