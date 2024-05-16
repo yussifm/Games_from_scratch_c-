@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <SDL.h>
 #include "./headers/display.h"
+#include "./headers/vector.h"
+
 
 
 // Global Variables
@@ -20,11 +22,16 @@ void process_input(void);
 // Main Function
 int main(int argc, char* argv[]) {
 
+
 	// Creating SDL Window
 	is_running = initialize_window();
 
 
 	setup();
+
+	vect3_t myvect3 = { 8.0f, 3.0f, 21.40f };
+
+	printf("x = %f, y = %f, z = %f", myvect3.x, myvect3.y, myvect3.z);
 
 	// Main Loop / Game Loop
 	while (is_running)
