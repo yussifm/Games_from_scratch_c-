@@ -11,7 +11,8 @@ const int N_POINTS = 9*9*9;
 vect3_t  vCube_points[9 * 9 * 9]; // 9x9x9 cube
 vect2_t projected_points[9 * 9 * 9];
 
-float fov_factor = 128;
+vect3_t camera_position = {.x = 0, .y = 0,.z =-5};
+float fov_factor = 648;
 
 
 // Global Variables
@@ -109,8 +110,8 @@ void setup(void) {
 vect2_t project(vect3_t point) {
 
 	vect2_t projected_point = {
-	 .x = (fov_factor * point.x), 
-	 .y = (fov_factor * point.y)
+	 .x = (fov_factor * point.x) / (point.z),
+	 .y = (fov_factor * point.y) / (point.z)
 	};
 
 
@@ -119,6 +120,9 @@ vect2_t project(vect3_t point) {
 void update(void) {
 	for (int i = 0; i < N_POINTS; i++) {
 		vect3_t point = vCube_points[i];
+
+		// Move the point to the camera position
+		point.z -= camera_position.z;
 
 		// project the current point 
 	 vect2_t projected_ptr = project(point);
@@ -140,8 +144,8 @@ void render(void) {
 	for (int i = 0; i < N_POINTS; i++) {
 	       vect2_t projected_point = projected_points[i];
 	       draw_react(
-           (int)projected_point.x + (int)(i_Windown_width / 4.5),
-           (int)projected_point.y + (int)(i_Windown_height / 4.5),
+           (int)projected_point.x + (int)(i_Windown_width / 4),
+           (int)projected_point.y + (int)(i_Windown_height / 4),
            10,
 		   10, 
 		   0xFFFFFF00
