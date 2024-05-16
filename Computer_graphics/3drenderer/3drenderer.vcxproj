@@ -155,7 +155,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\display.c" />
     <ClCompile Include="src\Main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\headers\display.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
