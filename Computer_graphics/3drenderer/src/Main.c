@@ -83,6 +83,7 @@ void render(void) {
 
 	draw_grid();
 	draw_react(200, 300, 100, 400, 0xFF00FF00);
+	draw_pixel(50, 20, 0xFFFF00FF);
 	render_color_buffer();
 	clear_color_buffer(0xFF000000);
 

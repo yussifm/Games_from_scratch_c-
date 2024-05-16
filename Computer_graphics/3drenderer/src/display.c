@@ -78,7 +78,10 @@ void render_color_buffer(void) {
 }
 // 
 void draw_pixel(int x, int y, uint32_t color) {
-	Uint32_color_buffer[(i_Windown_width * y) + x] = color;
+	if (x < i_Windown_width && y < i_Windown_height) {
+		Uint32_color_buffer[(i_Windown_width * y) + x] = color;
+ }
+	
 }
 
 //
