@@ -1,19 +1,36 @@
 
 #include <iostream>
 #include <SDL.h>
+#include "./headers/display.h"
+#include "./headers/GlobalHeaders.h"
 
-//Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
 
-//The window we'll be rendering to
-SDL_Window* window = NULL;
 
-//The surface contained by the window
-SDL_Surface* screenSurface = NULL;
+
+
+
+
+
 
 int main(int argc, char* args[])
 {
+	// Creating SDL Window
+	is_running = Display::Display().initialize_window();
+
+
+	setup();
+
+	// Main Loop / Game Loop
+	while (is_running)
+	{
+		process_input();
+		update();
+		render();
+
+	}
+
+	// Destroying SDL Window
+	Display::Display().destory_window();
 
 
 	
