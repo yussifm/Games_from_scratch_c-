@@ -1,0 +1,4 @@
+﻿  ConsoleFPS_game.cpp
+D:\programming\pratice_area\C_C++\games_from_scratch_with_c++\ConsoleFPS_game\ConsoleFPS_game.cpp(157,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\programming\pratice_area\C_C++\games_from_scratch_with_c++\ConsoleFPS_game\ConsoleFPS_game.cpp(166,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  ConsoleFPS_game.vcxproj -> D:\programming\pratice_area\C_C++\games_from_scratch_with_c++\ConsoleFPS_game\x64\Debug\ConsoleFPS_game.exe

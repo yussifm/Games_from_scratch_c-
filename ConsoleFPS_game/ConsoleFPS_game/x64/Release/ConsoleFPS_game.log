@@ -1,0 +1,4 @@
+﻿  ConsoleFPS_game.cpp
+D:\programming\pratice_area\C_C++\games_from_scratch_with_c++\ConsoleFPS_game\ConsoleFPS_game.cpp(26,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\programming\pratice_area\C_C++\games_from_scratch_with_c++\ConsoleFPS_game\ConsoleFPS_game.cpp(77,46): error C2059: syntax error: ';'
+D:\programming\pratice_area\C_C++\games_from_scratch_with_c++\ConsoleFPS_game\ConsoleFPS_game.cpp(112,26): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
