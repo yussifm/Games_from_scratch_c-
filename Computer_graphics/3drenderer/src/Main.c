@@ -7,6 +7,7 @@
 
 // Arrsy of vectors / pointers
 const int N_POINTS = 9*9*9;
+int i_prev_frame_time = 0;
 
 vect3_t  vCube_points[9 * 9 * 9]; // 9x9x9 cube
 vect2_t projected_points[9 * 9 * 9];
@@ -119,6 +120,9 @@ vect2_t project(vect3_t point) {
 	return projected_point;
 }
 void update(void) {
+	while (!SDL_TICKS_PASSED(SDL_GetTicks(), i_prev_frame_time + FRAME_TARGET_TIME))
+
+	i_prev_frame_time = SDL_GetTicks();
 
 	cube_rotatation.x += 0.01;
 	cube_rotatation.y += 0.01;
