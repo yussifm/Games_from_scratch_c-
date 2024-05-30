@@ -4,11 +4,13 @@
 #include <SDL.h>
 #include "./headers/display.h"
 #include "./headers/vector.h"
+#include "./headers/mesh.h"
+#include "./headers/triangle.h"
 
 
 
 
-
+triangle_t triangles_to_render[N_MESH_FACES];
 int i_prev_frame_time = 0;
 
 //vect3_t  vCube_points[9 * 9 * 9]; // 9x9x9 cube
@@ -130,6 +132,42 @@ void update(void) {
 	cube_rotatation.y += 0.01;
 	cube_rotatation.z += 0.01;
 
+	// loop all triangle faces of our cube mesh
+	for (int i = 0; i < N_MESH_FACES; i++) {
+		face_t mesh_face = vMesh_faces[i];
+
+		vect3_t face_vertices[3];
+		face_vertices[0] = vMesh_vertices[mesh_face.a - 1];
+		face_vertices[1] = vMesh_vertices[mesh_face.b - 1];
+		face_vertices[2] = vMesh_vertices[mesh_face.c - 1];
+
+		triangle_t projected_triangle;
+		// loop all three vertices of this current face and apply transformations 
+		for (int j = 0; j < 3; j++) {
+			vect3_t transform_vertex = face_vertices[j];
+
+			transform_vertex = vec3_rotate_x(transform_vertex, cube_rotatation.x);
+			transform_vertex = vec3_rotate_y(transform_vertex, cube_rotatation.y);
+			transform_vertex = vec3_rotate_z(transform_vertex, cube_rotatation.z);
+
+			// Translate the point away from the camera position
+			transform_vertex.z -= camera_position.z;
+
+			// Project the current vertex
+			vect2_t projected_point = project(transform_vertex);
+
+			// Scale and translate the projected points to the middle of the screen
+			projected_point.x += (i_Windown_width / 4);
+			projected_point.y += (i_Windown_height / 4);
+
+			projected_triangle.points[j] = projected_point;
+		}
+
+		// Save the projected triangle in the array of projected triangles to render
+		triangles_to_render[i] = projected_triangle;
+
+	}
+
 	//for (int i = 0; i < N_POINTS; i++) {
 	//	vect3_t point = vCube_points[i];
 
@@ -161,6 +199,14 @@ void render(void) {
 	//SDL_RenderClear(p_renderer);
 
 	draw_grid();
+
+	// Loop all projected triangles and render them 
+	for (int i = 0; i < N_MESH_FACES; i++) {
+		triangle_t triangle = triangles_to_render[i];
+		draw_react(	triangle.points[0].x, triangle.points[0].y,3,3,0xFFFFFF00);
+		draw_react(	triangle.points[1].x, triangle.points[1].y,3,3,0xFFFFFF00);
+		draw_react(	triangle.points[2].x, triangle.points[2].y,3,3,0xFFFFFF00);
+	}
 
 	// loop all projected points and render then
 	//for (int i = 0; i < N_POINTS; i++) {
