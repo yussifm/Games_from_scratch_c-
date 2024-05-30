@@ -24,6 +24,12 @@
     <ClCompile Include="src\vector.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\mesh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\triangle.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\headers\display.h">
