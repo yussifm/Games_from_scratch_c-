@@ -32,5 +32,11 @@
     <ClInclude Include="src\headers\vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\headers\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

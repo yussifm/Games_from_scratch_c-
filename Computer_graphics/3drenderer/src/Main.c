@@ -5,15 +5,17 @@
 #include "./headers/display.h"
 #include "./headers/vector.h"
 
-// Arrsy of vectors / pointers
-const int N_POINTS = 9*9*9;
+
+
+
+
 int i_prev_frame_time = 0;
 
-vect3_t  vCube_points[9 * 9 * 9]; // 9x9x9 cube
-vect2_t projected_points[9 * 9 * 9];
+//vect3_t  vCube_points[9 * 9 * 9]; // 9x9x9 cube
+//vect2_t projected_points[9 * 9 * 9];
 
-vect3_t camera_position = {.x = 0, .y = 0, .z = -5};
-vect3_t cube_rotatation = {.x = 0, .y = 0, .z = 0};
+vect3_t camera_position = { .x = 0, .y = 0, .z = -5 };
+vect3_t cube_rotatation = { .x = 0, .y = 0, .z = 0 };
 float fov_factor = 448;
 
 
@@ -68,7 +70,7 @@ void process_input(void) {
 		is_running = false;
 		break;
 	case SDL_KEYDOWN:
-		if (event.key.keysym.sym == SDLK_ESCAPE) 
+		if (event.key.keysym.sym == SDLK_ESCAPE)
 			is_running = false;
 		break;
 	default:
@@ -79,29 +81,29 @@ void process_input(void) {
 void setup(void) {
 
 	// Allocate the required memory in bytes to hold/ store the color buffer
-	Uint32_color_buffer =(Uint32*) malloc(sizeof(Uint32) * i_Windown_width * i_Windown_height);
+	Uint32_color_buffer = (Uint32*)malloc(sizeof(Uint32) * i_Windown_width * i_Windown_height);
 
 	// Creating a SDL texture that is used to display the color buffer
 	p_color_buffer_texture = SDL_CreateTexture(
-	p_renderer,
-	SDL_PIXELFORMAT_ARGB8888, 
-	SDL_TEXTUREACCESS_STREAMING, 
-	i_Windown_width, 
-	i_Windown_height
+		p_renderer,
+		SDL_PIXELFORMAT_ARGB8888,
+		SDL_TEXTUREACCESS_STREAMING,
+		i_Windown_width,
+		i_Windown_height
 	);
 
-	int point_count = 0;
-	
+	//int point_count = 0;
+
 	// start loading my array of vectors
 	// from -1 to 1 (in this 9x9x9 cube)
-	for (float x = -1; x <= 1; x += 0.25) {
-		for (float y = -1; y <= 1; y += 0.25) {
-			for (float z = -1; z <= 1; z += 0.25) {
-				vect3_t new_point = { .x = x, .y = y, .z = z };
-				vCube_points[point_count++] = new_point;
-			}
-		}
-	}
+	//for (float x = -1; x <= 1; x += 0.25) {
+	//	for (float y = -1; y <= 1; y += 0.25) {
+	//		for (float z = -1; z <= 1; z += 0.25) {
+	//			vect3_t new_point = { .x = x, .y = y, .z = z };
+	//			vCube_points[point_count++] = new_point;
+	//		}
+	//	}
+	//}
 }
 //
 
@@ -122,34 +124,34 @@ vect2_t project(vect3_t point) {
 void update(void) {
 	while (!SDL_TICKS_PASSED(SDL_GetTicks(), i_prev_frame_time + FRAME_TARGET_TIME))
 
-	i_prev_frame_time = SDL_GetTicks();
+		i_prev_frame_time = SDL_GetTicks();
 
 	cube_rotatation.x += 0.01;
 	cube_rotatation.y += 0.01;
 	cube_rotatation.z += 0.01;
 
-	for (int i = 0; i < N_POINTS; i++) {
-		vect3_t point = vCube_points[i];
+	//for (int i = 0; i < N_POINTS; i++) {
+	//	vect3_t point = vCube_points[i];
 
-		vect3_t transformed_point = vec3_rotate_x(point, cube_rotatation.x);
-		 transformed_point = vec3_rotate_y(transformed_point, cube_rotatation.y);
-		 transformed_point = vec3_rotate_z(transformed_point, cube_rotatation.z);
+	//	vect3_t transformed_point = vec3_rotate_x(point, cube_rotatation.x);
+	//	 transformed_point = vec3_rotate_y(transformed_point, cube_rotatation.y);
+	//	 transformed_point = vec3_rotate_z(transformed_point, cube_rotatation.z);
 
-		// Move the point to the camera position
-		//point.z -= camera_position.z;	
-		
-		// translate the point away from the camera position
-		transformed_point.z -= camera_position.z;
+	//	// Move the point to the camera position
+	//	//point.z -= camera_position.z;	
+	//	
+	//	// translate the point away from the camera position
+	//	transformed_point.z -= camera_position.z;
 
-		// project the current point 
-	// vect2_t projected_ptr = project(point);
+	//	// project the current point 
+	//// vect2_t projected_ptr = project(point);
 
-	 // save the projected 2D vector in the array of projected points
-	 vect2_t projected_ptr = project(transformed_point);
+	// // save the projected 2D vector in the array of projected points
+	// vect2_t projected_ptr = project(transformed_point);
 
-	 // save the projected 2D vector in the array of projected points
-	 projected_points[i] = projected_ptr;
-   }
+	// // save the projected 2D vector in the array of projected points
+	// projected_points[i] = projected_ptr;
+  // }
 
 }
 //
@@ -161,16 +163,16 @@ void render(void) {
 	draw_grid();
 
 	// loop all projected points and render then
-	for (int i = 0; i < N_POINTS; i++) {
-	       vect2_t projected_point = projected_points[i];
-	       draw_react(
-           (int)projected_point.x + (int)(i_Windown_width / 4),
-           (int)projected_point.y + (int)(i_Windown_height / 4),
-           10,
-		   10, 
-		   0xFFFFFF00
-	  );
-	}
+	//for (int i = 0; i < N_POINTS; i++) {
+	//       vect2_t projected_point = projected_points[i];
+	//       draw_react(
+ //          (int)projected_point.x + (int)(i_Windown_width / 4),
+ //          (int)projected_point.y + (int)(i_Windown_height / 4),
+ //          10,
+	//	   10, 
+	//	   0xFFFFFF00
+	//  );
+	//}
 	//draw_react(200, 300, 100, 400, 0xFF00FF00);
 	//draw_pixel(50, 20, 0xFFFF00FF);
 
