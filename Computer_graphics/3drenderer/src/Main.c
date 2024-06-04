@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <SDL.h>
+#include "./headers/array.h"
 #include "./headers/display.h"
 #include "./headers/vector.h"
 #include "./headers/mesh.h"
@@ -10,7 +11,7 @@
 
 
 
-triangle_t triangles_to_render[N_MESH_FACES];
+triangle_t * triangles_to_render = NULL;
 int i_prev_frame_time = 0;
 
 //vect3_t  vCube_points[9 * 9 * 9]; // 9x9x9 cube
@@ -124,9 +125,14 @@ vect2_t project(vect3_t point) {
 	return projected_point;
 }
 void update(void) {
+
+
 	while (!SDL_TICKS_PASSED(SDL_GetTicks(), i_prev_frame_time + FRAME_TARGET_TIME))
 
 		i_prev_frame_time = SDL_GetTicks();
+
+	// initialize array of triangles to render
+	triangles_to_render = NULL;
 
 	cube_rotatation.x += 0.01;
 	cube_rotatation.y += 0.01;
@@ -157,14 +163,15 @@ void update(void) {
 			vect2_t projected_point = project(transform_vertex);
 
 			// Scale and translate the projected points to the middle of the screen
-			projected_point.x += (i_Windown_width / 4);
-			projected_point.y += (i_Windown_height / 4);
+			projected_point.x += (i_Windown_width / 2);
+			projected_point.y += (i_Windown_height / 2);
 
 			projected_triangle.points[j] = projected_point;
 		}
 
 		// Save the projected triangle in the array of projected triangles to render
-		triangles_to_render[i] = projected_triangle;
+		/*triangles_to_render[i] = projected_triangle;*/
+		array_push(triangles_to_render, projected_triangle);
 
 	}
 
@@ -203,7 +210,8 @@ void render(void) {
 	//draw_line(100, 200, 400, 20, 0xFF00FF00);
 	// 
 	// Loop all projected triangles and render them 
-	for (int i = 0; i < N_MESH_FACES; i++) {
+	int i_num_triangles = array_length(triangles_to_render);
+	for (int i = 0; i < i_num_triangles; i++) {
 		// Draw vertex points
 		triangle_t triangle = triangles_to_render[i];
 		/*draw_react(	triangle.points[0].x, triangle.points[0].y,3,3,0xFFFFFF00);
@@ -236,6 +244,9 @@ void render(void) {
 	//}
 	//draw_react(200, 300, 100, 400, 0xFF00FF00);
 	//draw_pixel(50, 20, 0xFFFF00FF);
+
+	// Clear the array of triangles go render every frame loop
+	array_free(triangles_to_render);
 
 	render_color_buffer();
 	clear_color_buffer(0xFF000000);

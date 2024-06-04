@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\array.c" />
     <ClCompile Include="src\display.c" />
     <ClCompile Include="src\Main.c" />
     <ClCompile Include="src\mesh.c" />
@@ -166,6 +167,7 @@
     <ClCompile Include="src\vector.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\headers\array.h" />
     <ClInclude Include="src\headers\display.h" />
     <ClInclude Include="src\headers\mesh.h" />
     <ClInclude Include="src\headers\triangle.h" />
