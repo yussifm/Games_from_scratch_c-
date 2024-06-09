@@ -71,14 +71,13 @@ void load_obj_file_data(const char* filename) {
 		return;
 	}
 
-	char line[24459];
+	char line[1024];
 
-	while (fgets(line, sizeof(line), file)) {
+	while (fgets(line, 1024, file)) {
 		printf("LINE=%s", line);
-
 		// Vertex information
 		if (strcmp(line, "v ", 2) == 0) {
-			vect3_t vertex;
+			vect3_t vertex={0,0,0};
 			sscanf_s(line, "v %f %f %f", &vertex.x, &vertex.y, &vertex.z);
 			array_push(mesh.vertices, vertex); 
 		}
@@ -89,7 +88,7 @@ void load_obj_file_data(const char* filename) {
 			int texture_indices[3];
 			int normal_indices[3];
 			sscanf_s(
-				line, "f %d%d%d %d%d%d %d%d%d",
+				line, "f %d/%d/%d %d/%d/%d %d/%d/%d",
 				&vertex_indices[0], &texture_indices[0], &normal_indices[0],
 				&vertex_indices[1], &texture_indices[1], &normal_indices[1],
 				&vertex_indices[2], &texture_indices[2], &normal_indices[2]		
