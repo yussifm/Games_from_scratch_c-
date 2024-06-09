@@ -98,7 +98,8 @@ void setup(void) {
 	);
 
 	// Loads the cube values in the mesh data structure 
-	load_cube_mesh_data();
+	/*load_cube_mesh_data();*/
+	load_obj_file_data("./objFiles/FinalBaseMesh.obj");
 }
 //
 
