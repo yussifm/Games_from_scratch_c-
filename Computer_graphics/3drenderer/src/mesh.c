@@ -60,3 +60,16 @@ void load_cube_mesh_data(void) {
 	}
 
 }
+
+void load_obj_file_data(char* filename) {
+	FILE* file;
+	file = fopen(filename, "r");
+	
+	char line[1024];
+   
+	while (fgets(line, 1024, file))
+	{
+		printf("LINE=%s", line);
+	}
+
+}
