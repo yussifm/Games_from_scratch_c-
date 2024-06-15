@@ -170,7 +170,8 @@ void update(void) {
 		// Get the vector AB and AC by subtracting B from A and C from A
 		vect3_t vector_ab = vect3_sub(vector_b, vector_a);
 		vect3_t vector_ac = vect3_sub(vector_c, vector_a);
-
+		vec3_normalize(&vector_ab);
+		vec3_normalize(&vector_ac);
 
 		//Compute the face normal (using cross product to fiind perpendicular)
         vect3_t normal = vec3_cross(vector_ab, vector_ac); 
