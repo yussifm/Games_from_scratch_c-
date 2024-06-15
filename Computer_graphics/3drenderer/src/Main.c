@@ -99,7 +99,7 @@ void setup(void) {
 
 	// Loads the cube values in the mesh data structure 
 	/*load_cube_mesh_data();*/
-	load_obj_file_data("./assets/cube.obj");
+	load_obj_file_data("./assets/f22.obj");
 
 
 }
@@ -175,6 +175,10 @@ void update(void) {
 		//Compute the face normal (using cross product to fiind perpendicular)
         vect3_t normal = vec3_cross(vector_ab, vector_ac); 
 
+		// Normalize the normal
+	   /*vect3_t normalized_normal = vect3_div(normal, vect3_length(normal));*/
+		vec3_normalize(&normal);
+
 		//Find the vector between a point in the triangle and the camera origin
           vect3_t camera_ray = vect3_sub(camera_position, vector_a);
 
@@ -187,8 +191,7 @@ void update(void) {
 			  continue;
 		  }
 
-		// Normalize the normal
-		//normal = vect3_div(normal, vect3_length(normal));
+	
 
 
 		triangle_t projected_triangle;

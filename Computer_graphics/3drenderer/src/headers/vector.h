@@ -20,6 +20,7 @@ typedef struct {
  vect2_t vect2_mul(vect2_t v, float factor);
  vect2_t vect2_div(vect2_t v, float factor);
  float vec2_dot(vect2_t a, vect2_t b);
+ void vec2_normalize(vect2_t *v);
 
 
 
@@ -32,6 +33,7 @@ typedef struct {
  vect3_t vect3_div(vect3_t v, float factor);
  vect3_t vec3_cross(vect3_t a, vect3_t b);
  float vec3_dot(vect3_t a, vect3_t b);
+ void vec3_normalize(vect3_t* v);
 
 vect3_t vec3_rotate_x(vect3_t v, float angle);
 vect3_t vec3_rotate_y(vect3_t v, float angle);
