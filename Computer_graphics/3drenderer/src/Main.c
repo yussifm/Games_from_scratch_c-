@@ -17,7 +17,7 @@ int i_prev_frame_time = 0;
 //vect3_t  vCube_points[9 * 9 * 9]; // 9x9x9 cube
 //vect2_t projected_points[9 * 9 * 9];
 
-vect3_t camera_position = { .x = 0, .y = 0, .z = -5 };
+vect3_t camera_position = { 0,0,0};
 //vect3_t mesh.rotation = { .x = 0, .y = 0, .z = 0 };
 float fov_factor = 448;
 
@@ -99,13 +99,9 @@ void setup(void) {
 
 	// Loads the cube values in the mesh data structure 
 	/*load_cube_mesh_data();*/
-	load_obj_file_data("./assets/f117.obj");
+	load_obj_file_data("./assets/cube.obj");
 
-	vect3_t a = { 2.5, 6.4, 3.0 };
-	vect3_t b = { 2.5, 6.4, 3.0 };
 
-	float a_length = vect3_length(a);
-	float b_length = vect3_length(b);
 }
 //
 
@@ -160,17 +156,39 @@ void update(void) {
 			transform_vertex = vec3_rotate_z(transform_vertex, mesh.rotation.z);
 
 			// Translate the point away from the camera position
-			transform_vertex.z -= camera_position.z;
+			transform_vertex.z += 5;
 
 			// save the transformed vertex in the array of transformed vertices
 			transformed_vertices[j] = transform_vertex;
 		}
+
+		// Check backface culling
 		vect3_t vector_a = transformed_vertices[0];  /*   A   */
 		vect3_t vector_b = transformed_vertices[1];  /*  / \  */
 		vect3_t vector_c = transformed_vertices[2];  /* C---B */
 		
+		// Get the vector AB and AC by subtracting B from A and C from A
 		vect3_t vector_ab = vect3_sub(vector_b, vector_a);
 		vect3_t vector_ac = vect3_sub(vector_c, vector_a);
+
+
+		//Compute the face normal (using cross product to fiind perpendicular)
+        vect3_t normal = vec3_cross(vector_ab, vector_ac); 
+
+		//Find the vector between a point in the triangle and the camera origin
+          vect3_t camera_ray = vect3_sub(camera_position, vector_a);
+
+		// Calculate how aligned the camera ray is with the face normal (using dot product)
+		  float dot_normal_camera = vec3_dot( normal, camera_ray);
+
+		  // Bypass the triangles that are looking away from the camera
+		  if (dot_normal_camera < 0) {
+			  continue;
+		  }
+
+		// Normalize the normal
+		//normal = vect3_div(normal, vect3_length(normal));
+
 
 		triangle_t projected_triangle;
 		// loop all three vertices to perform projection
