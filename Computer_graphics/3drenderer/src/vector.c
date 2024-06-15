@@ -2,6 +2,17 @@
 #include "./headers/vector.h"
 
 
+// Vector 2D Functions
+float vect2_length(vect2_t v) {
+	return sqrt(v.x * v.x + v.y * v.y);
+}
+
+
+// Vector 3D Functions
+	float vect3_length(vect3_t v) {
+	 return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+	}
+
 
 vect3_t vec3_rotate_x(vect3_t v, float angle) {
 	vect3_t new_point = { 
