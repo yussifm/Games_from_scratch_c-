@@ -17,12 +17,17 @@ typedef struct {
  float vect2_length(vect2_t v);
  vect2_t vect2_add(vect2_t a, vect2_t b);
  vect2_t vect2_sub(vect2_t a, vect2_t b);
+ vect2_t vect2_mul(vect2_t v, float factor);
+ vect2_t vect2_div(vect2_t v, float factor);
+
 
 
  // Vector 3D Functions
  float vect3_length(vect3_t v);
  vect3_t vect3_add(vect3_t a, vect3_t b);
  vect3_t vect3_sub(vect3_t a, vect3_t b);
+ vect3_t vect3_mul(vect3_t v, float factor);
+ vect3_t vect3_div(vect3_t v, float factor);
 
 vect3_t vec3_rotate_x(vect3_t v, float angle);
 vect3_t vec3_rotate_y(vect3_t v, float angle);

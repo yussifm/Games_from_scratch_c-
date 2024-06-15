@@ -20,6 +20,21 @@ vect2_t vect2_sub(vect2_t a, vect2_t b) {
 	.y = a.y - b.y};
 }
 
+vect2_t vect2_mul(vect2_t v, float factor) {
+	vect2_t result = {
+	.x = v.x * factor,
+	.y = v.y * factor
+	};
+	return result;
+}
+vect2_t vect2_div(vect2_t v, float factor) {
+	vect2_t result = {
+	.x = v.x / factor,
+	.y = v.y / factor
+	};
+	return result;
+}
+
 
 // Vector 3D Functions
 	float vect3_length(vect3_t v) {
@@ -40,6 +55,23 @@ vect2_t vect2_sub(vect2_t a, vect2_t b) {
 		 .z = a.z - b.z
 		};
 
+		return result;
+	}
+
+	vect3_t vect3_mul(vect3_t v, float factor) {
+		vect3_t result = {
+		.x = v.x * factor,
+		.y = v.y * factor,
+		.z = v.z * factor
+		};
+		return result;
+	}
+	vect3_t vect3_div(vect3_t v, float factor) {
+		vect3_t result = {
+		.x = v.x / factor,
+		.y = v.y / factor,
+		.z = v.z / factor
+		};
 		return result;
 	}
 
