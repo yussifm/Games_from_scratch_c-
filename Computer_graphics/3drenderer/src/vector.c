@@ -7,10 +7,40 @@ float vect2_length(vect2_t v) {
 	return sqrt(v.x * v.x + v.y * v.y);
 }
 
+vect2_t vect2_add(vect2_t a, vect2_t b) {
+	vect2_t result = {
+	.x = a.x + b.x,
+	.y = a.y + b.y};
+
+	return result;
+}
+vect2_t vect2_sub(vect2_t a, vect2_t b) {
+	vect2_t result = {
+	.x = a.x - b.x,
+	.y = a.y - b.y};
+}
+
 
 // Vector 3D Functions
 	float vect3_length(vect3_t v) {
 	 return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+	}
+	vect3_t vect3_add(vect3_t a, vect3_t b) {
+		vect3_t result = {
+		.x = a.x + b.x ,
+		.y = a.y + b.y,
+		.z = a.z + b.z
+		};
+		return result;
+	}
+	vect3_t vect3_sub(vect3_t a, vect3_t b) {
+		vect3_t result = {
+		 .x = a.x - b.x, 
+		 .y = a.y - b.y, 
+		 .z = a.z - b.z
+		};
+
+		return result;
 	}
 
 

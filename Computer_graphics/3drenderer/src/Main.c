@@ -100,6 +100,12 @@ void setup(void) {
 	// Loads the cube values in the mesh data structure 
 	/*load_cube_mesh_data();*/
 	load_obj_file_data("./assets/f117.obj");
+
+	vect3_t a = { 2.5, 6.4, 3.0 };
+	vect3_t b = { 2.5, 6.4, 3.0 };
+
+	float a_length = vect3_length(a);
+	float b_length = vect3_length(b);
 }
 //
 
