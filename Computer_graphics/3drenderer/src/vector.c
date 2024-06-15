@@ -35,6 +35,9 @@ vect2_t vect2_div(vect2_t v, float factor) {
 	return result;
 }
 
+float vec2_dot(vect2_t a, vect2_t b) {
+	return (a.x * b.x) + (a.y * b.y);
+}
 
 // Vector 3D Functions
 	float vect3_length(vect3_t v) {
@@ -75,6 +78,19 @@ vect2_t vect2_div(vect2_t v, float factor) {
 		return result;
 	}
 
+	vect3_t vec3_cross(vect3_t a, vect3_t b) {
+
+		vect3_t result = {
+		.x = a.y * b.z - a.z * b.y,
+		.y = a.z * b.x - a.x * b.z,
+		.z = a.x * b.y - a.y * b.x
+		};
+		return result;
+	}
+
+	float vec3_dot(vect3_t a, vect3_t b) {
+		return (a.x * b.x )+ (a.y * b.y )+( a.z * b.z);
+	}
 
 vect3_t vec3_rotate_x(vect3_t v, float angle) {
 	vect3_t new_point = { 
