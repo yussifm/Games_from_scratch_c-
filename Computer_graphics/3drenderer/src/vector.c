@@ -41,9 +41,9 @@ float vec2_dot(vect2_t a, vect2_t b) {
 
 void vec2_normalize(vect2_t* v) {
 
-	float length = vect2_length(*v);
-	v->x = v->x / length;
-	v->y = v->y / length;
+	float length = sqrt(v->x * v->x + v->y * v->y);;
+	v->x /= length;
+	v->y /= length;
 }
 
 // Vector 3D Functions
@@ -101,10 +101,10 @@ void vec2_normalize(vect2_t* v) {
 
 	void vec3_normalize(vect3_t* v) {
 
-		float length = vect3_length(*v);
-		v->x = v->x / length;
-		v->y = v->y / length;
-		v->z = v->z / length;
+		float length = sqrt(v->x * v->x + v->y * v->y + v->z * v->z);;
+		v->x /= length;
+		v->y /= length;
+		v->z /= length;
 	}
 
 vect3_t vec3_rotate_x(vect3_t v, float angle) {
