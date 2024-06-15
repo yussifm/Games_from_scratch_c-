@@ -182,6 +182,7 @@ void update(void) {
 		  float dot_normal_camera = vec3_dot( normal, camera_ray);
 
 		  // Bypass the triangles that are looking away from the camera
+		  // to get the inverse > 0
 		  if (dot_normal_camera < 0) {
 			  continue;
 		  }
