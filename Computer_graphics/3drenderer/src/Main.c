@@ -148,7 +148,9 @@ void update(void) {
 		face_vertices[1] = mesh.vertices[mesh_face.b - 1];
 		face_vertices[2] = mesh.vertices[mesh_face.c - 1];
 
-		triangle_t projected_triangle;
+	
+
+		vect3_t transformed_vertices[3];
 		// loop all three vertices of this current face and apply transformations 
 		for (int j = 0; j < 3; j++) {
 			vect3_t transform_vertex = face_vertices[j];
@@ -160,8 +162,22 @@ void update(void) {
 			// Translate the point away from the camera position
 			transform_vertex.z -= camera_position.z;
 
+			// save the transformed vertex in the array of transformed vertices
+			transformed_vertices[j] = transform_vertex;
+		}
+		vect3_t vector_a = transformed_vertices[0];  /*   A   */
+		vect3_t vector_b = transformed_vertices[1];  /*  / \  */
+		vect3_t vector_c = transformed_vertices[2];  /* C---B */
+		
+		vect3_t vector_ab = vect3_sub(vector_b, vector_a);
+		vect3_t vector_ac = vect3_sub(vector_c, vector_a);
+
+		triangle_t projected_triangle;
+		// loop all three vertices to perform projection
+		for (int j = 0; j < 3; j++ ) {
+
 			// Project the current vertex
-			vect2_t projected_point = project(transform_vertex);
+			vect2_t projected_point = project(transformed_vertices[j]);
 
 			// Scale and translate the projected points to the middle of the screen
 			projected_point.x += (i_Windown_width / 2);
