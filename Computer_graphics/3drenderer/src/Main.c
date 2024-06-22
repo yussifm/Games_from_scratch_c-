@@ -90,6 +90,7 @@ void setup(void) {
 
 	// Creating a SDL texture that is used to display the color buffer
 	p_color_buffer_texture = SDL_CreateTexture(
+
 		p_renderer,
 		SDL_PIXELFORMAT_ARGB8888,
 		SDL_TEXTUREACCESS_STREAMING,
@@ -99,7 +100,7 @@ void setup(void) {
 
 	// Loads the cube values in the mesh data structure 
 	/*load_cube_mesh_data();*/
-	load_obj_file_data("./assets/f22.obj");
+	load_obj_file_data("./assets/f117.obj");
 
 
 }
@@ -231,23 +232,35 @@ void render(void) {
 	// Loop all projected triangles and render them 
 	int i_num_triangles = array_length(triangles_to_render);
 	for (int i = 0; i < i_num_triangles; i++) {
-		// Draw vertex points
+	//	// Draw vertex points
 		triangle_t triangle = triangles_to_render[i];
-		
+	//	
 
-		// Dre=aw unfilled triangle
-		draw_triangle(
+	//	// Draw filled triangle
+		draw_filled_triangle(
 		   triangle.points[0].x,
 		   triangle.points[0].y,
 		   triangle.points[1].x,
 		   triangle.points[1].y,
 		   triangle.points[2].x,
 		   triangle.points[2].y,
-			0xFF00FF00
+			0xFFFFFFFF
 
 		);
+	// Draw UNfilled triangle
+		draw_triangle(
+			triangle.points[0].x,
+			triangle.points[0].y,
+			triangle.points[1].x,
+			triangle.points[1].y,
+			triangle.points[2].x,
+			triangle.points[2].y,
+			0xFFD3D3D3
+		);
+
 	}
 
+	//draw_filled_triangle(300, 100, 50, 400, 500, 700, 0xFF00FF00);
 
 	array_free(triangles_to_render);
 	
