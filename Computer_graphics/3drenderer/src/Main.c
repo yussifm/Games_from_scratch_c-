@@ -77,13 +77,31 @@ void process_input(void) {
 	case SDL_KEYDOWN:
 		if (event.key.keysym.sym == SDLK_ESCAPE)
 			is_running = false;
+		if (event.key.keysym.sym == SDLK_1)
+			render_method = RENDER_WIRE_VERTX;
+		if (event.key.keysym.sym == SDLK_2)
+			render_method = RENDER_WIRE;
+		if (event.key.keysym.sym == SDLK_3)
+			render_method = RENDER_FILL_TRIANGLE;
+		if (event.key.keysym.sym == SDLK_4)
+			render_method = RENDER_FILL_TRIANGLE_WIRE;
+		if (event.key.keysym.sym == SDLK_c)
+			cull_method = CULL_BACKFACE;
+		if (event.key.keysym.sym == SDLK_d)
+			cull_method = CULL_NONE;
 		break;
+	
 	default:
 		break;
 	}
 }
 //
 void setup(void) {
+	// Initialize render mode and triangle culling method
+	render_method  = RENDER_WIRE;
+	cull_method = CULL_BACKFACE;
+
+
 
 	// Allocate the required memory in bytes to hold/ store the color buffer
 	Uint32_color_buffer = (Uint32*)malloc(sizeof(Uint32) * i_Windown_width * i_Windown_height);
@@ -100,7 +118,7 @@ void setup(void) {
 
 	// Loads the cube values in the mesh data structure 
 	/*load_cube_mesh_data();*/
-	load_obj_file_data("./assets/f117.obj");
+	load_obj_file_data("./assets/f22.obj");
 
 
 }
@@ -164,35 +182,36 @@ void update(void) {
 		}
 
 		// Check backface culling
-		vect3_t vector_a = transformed_vertices[0];  /*   A   */
-		vect3_t vector_b = transformed_vertices[1];  /*  / \  */
-		vect3_t vector_c = transformed_vertices[2];  /* C---B */
-		
-		// Get the vector AB and AC by subtracting B from A and C from A
-		vect3_t vector_ab = vect3_sub(vector_b, vector_a);
-		vect3_t vector_ac = vect3_sub(vector_c, vector_a);
-		vec3_normalize(&vector_ab);
-		vec3_normalize(&vector_ac);
+		if (cull_method == CULL_BACKFACE) {
+			vect3_t vector_a = transformed_vertices[0];  /*   A   */
+			vect3_t vector_b = transformed_vertices[1];  /*  / \  */
+			vect3_t vector_c = transformed_vertices[2];  /* C---B */
 
-		//Compute the face normal (using cross product to fiind perpendicular)
-        vect3_t normal = vec3_cross(vector_ab, vector_ac); 
+			// Get the vector AB and AC by subtracting B from A and C from A
+			vect3_t vector_ab = vect3_sub(vector_b, vector_a);
+			vect3_t vector_ac = vect3_sub(vector_c, vector_a);
+			vec3_normalize(&vector_ab);
+			vec3_normalize(&vector_ac);
 
-		// Normalize the normal
-	   /*vect3_t normalized_normal = vect3_div(normal, vect3_length(normal));*/
-		vec3_normalize(&normal);
+			//Compute the face normal (using cross product to fiind perpendicular)
+			vect3_t normal = vec3_cross(vector_ab, vector_ac);
 
-		//Find the vector between a point in the triangle and the camera origin
-          vect3_t camera_ray = vect3_sub(camera_position, vector_a);
+			// Normalize the normal
+		   /*vect3_t normalized_normal = vect3_div(normal, vect3_length(normal));*/
+			vec3_normalize(&normal);
 
-		// Calculate how aligned the camera ray is with the face normal (using dot product)
-		  float dot_normal_camera = vec3_dot( normal, camera_ray);
+			//Find the vector between a point in the triangle and the camera origin
+			vect3_t camera_ray = vect3_sub(camera_position, vector_a);
 
-		  // Bypass the triangles that are looking away from the camera
-		  // to get the inverse > 0
-		  if (dot_normal_camera < 0) {
-			  continue;
-		  }
+			// Calculate how aligned the camera ray is with the face normal (using dot product)
+			float dot_normal_camera = vec3_dot(normal, camera_ray);
 
+			// Bypass the triangles that are looking away from the camera
+			// to get the inverse > 0
+			if (dot_normal_camera < 0) {
+				continue;
+			}
+		}
 	
 
 
@@ -237,26 +256,38 @@ void render(void) {
 	//	
 
 	//	// Draw filled triangle
-		draw_filled_triangle(
-		   triangle.points[0].x,
-		   triangle.points[0].y,
-		   triangle.points[1].x,
-		   triangle.points[1].y,
-		   triangle.points[2].x,
-		   triangle.points[2].y,
-			0xFFFFFFFF
+		if (render_method == RENDER_FILL_TRIANGLE || render_method == RENDER_FILL_TRIANGLE_WIRE ) {
+			draw_filled_triangle(
+				triangle.points[0].x,
+				triangle.points[0].y,
+				triangle.points[1].x,
+				triangle.points[1].y,
+				triangle.points[2].x,
+				triangle.points[2].y,
+				0xFFFFFFFF
 
-		);
+			);
+		}
 	// Draw UNfilled triangle
-		draw_triangle(
-			triangle.points[0].x,
-			triangle.points[0].y,
-			triangle.points[1].x,
-			triangle.points[1].y,
-			triangle.points[2].x,
-			triangle.points[2].y,
-			0xFFD3D3D3
-		);
+		if (render_method == RENDER_WIRE|| render_method == RENDER_WIRE_VERTX || render_method == RENDER_FILL_TRIANGLE_WIRE) {
+			draw_triangle(
+				triangle.points[0].x,
+				triangle.points[0].y,
+				triangle.points[1].x,
+				triangle.points[1].y,
+				triangle.points[2].x,
+				triangle.points[2].y,
+				0xFFD3D3D3
+			);
+		}
+
+		// Draw triangle vertex points 
+		if (render_method == RENDER_WIRE_VERTX) {
+		 draw_react(triangle.points[0].x  / 2, triangle.points[0].y / 2, 6, 6, 0xFF00FF00);
+		 draw_react(triangle.points[1].x  / 2, triangle.points[1].y / 2, 6, 6, 0xFF00FF00);
+		 draw_react(triangle.points[2].x  / 2, triangle.points[2].y / 2, 6, 6, 0xFF00FF00);
+		
+		}
 
 	}
 
