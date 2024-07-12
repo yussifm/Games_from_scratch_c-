@@ -29,6 +29,13 @@ int main() {
   cout << q->data << endl;
   cout << q->next << endl;
 
+  // connection
+  unique_ptr<Node> R;
+  R = make_unique<Node>();
+  R->next = q;
+
+  cout << R->next->data << endl;
+
   delete q;
   return 0;
 }
