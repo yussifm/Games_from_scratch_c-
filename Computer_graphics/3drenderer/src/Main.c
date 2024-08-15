@@ -296,7 +296,9 @@ void render(void) {
 			);
 		}
 	// Draw UNfilled triangle
-		if (render_method == RENDER_WIRE|| render_method == RENDER_WIRE_VERTX || render_method == RENDER_FILL_TRIANGLE_WIRE) {
+		if (render_method == RENDER_WIRE|| 
+			render_method == RENDER_WIRE_VERTX || 
+			render_method == RENDER_FILL_TRIANGLE_WIRE) {
 			draw_triangle(
 				triangle.points[0].x,
 				triangle.points[0].y,

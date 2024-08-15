@@ -1,9 +1,26 @@
 #include <iostream>
+#include <memory>
 
 using namespace std;
 
-int main(){
+struct Node {
+  int data;
+  Node *next;
+};
 
+class SinglyLinkedList {
 
-    return 0;
-}
+private:
+  unique_ptr<Node> head;
+  unique_ptr<Node> tail;
+public:
+  SinglyLinkedList() {
+    head = nullptr;
+    tail = nullptr;
+  }
+  void create(int data) {
+  
+  }
+};
+
+int main() { return 0; }
