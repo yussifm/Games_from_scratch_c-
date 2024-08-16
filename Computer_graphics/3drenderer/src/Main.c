@@ -156,6 +156,7 @@ void update(void) {
 	// Scale
 	mesh.scale.x += 0.002;
 	mesh.scale.y += 0.001;
+	mesh.scale.z += 0.0001;
 
 
 	// create a scale matrix that will be used to multply the mesh vertices
