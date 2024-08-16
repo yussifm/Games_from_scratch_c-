@@ -155,6 +155,7 @@ void update(void) {
 
 	// Scale
 	mesh.scale.x += 0.002;
+	mesh.scale.y += 0.001;
 
 
 	// create a scale matrix that will be used to multply the mesh vertices
@@ -174,14 +175,14 @@ void update(void) {
 
 	
 
-		vect3_t transformed_vertices[3];
+		vect4_t transformed_vertices[3];
 		// loop all three vertices of this current face and apply transformations 
 		for (int j = 0; j < 3; j++) {
-			vect3_t transform_vertex = face_vertices[j];
+			vect4_t transform_vertex = vec4_from_vec3(face_vertices[j]);
 
 			// TODO: USe a matrix to scale our original vertex
 
-		
+			transform_vertex = mat4_mul_vec4(scale_matrix, transform_vertex);
 
 
 
@@ -198,9 +199,9 @@ void update(void) {
 
 		// Check backface culling
 		if (cull_method == CULL_BACKFACE) {
-			vect3_t vector_a = transformed_vertices[0];  /*   A   */
-			vect3_t vector_b = transformed_vertices[1];  /*  / \  */
-			vect3_t vector_c = transformed_vertices[2];  /* C---B */
+			vect3_t vector_a = vec3_from_vec4(transformed_vertices[0]);  /*   A   */
+			vect3_t vector_b = vec3_from_vec4(transformed_vertices[1]);  /*  / \  */
+			vect3_t vector_c = vec3_from_vec4(transformed_vertices[2]);  /* C---B */
 
 			// Get the vector AB and AC by subtracting B from A and C from A
 			vect3_t vector_ab = vect3_sub(vector_b, vector_a);
@@ -237,7 +238,7 @@ void update(void) {
 		for (int j = 0; j < 3; j++ ) {
 
 			// Project the current vertex
-			 projected_points[j] = project(transformed_vertices[j]);
+			 projected_points[j] = project(vec3_from_vec4(transformed_vertices[j]));
 
 			// Scale and translate the projected points to the middle of the screen
 			projected_points[j].x += (i_Windown_width / 2);

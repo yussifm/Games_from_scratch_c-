@@ -134,3 +134,28 @@ vect3_t vec3_rotate_z(vect3_t v, float angle) {
 	return new_point;
 }
 
+
+
+// Vector 4 functions
+
+vect4_t vec4_from_vec3(vect3_t v) {
+
+	vect4_t result = {
+		.x = v.x,
+		.y = v.y,
+		.z = v.z,
+		.w = 1
+	};
+	return result;
+}
+
+vect3_t vec3_from_vec4(vect4_t v) {
+
+	vect3_t result = {
+		.x = v.x,
+		.y = v.y,
+		.z = v.z
+	};
+	return result;
+}
+
