@@ -36,3 +36,16 @@ vect4_t mat4_mul_vec4(mat4_t m, vect4_t v) {
 	return result;
 
 }
+
+
+ mat4_t mat4_make_translation(float tx, float ty, float tz) {
+	// | 1 0 0 tx |
+	// | 0 1 0 ty | 
+	// | 0 0 1 tz |
+	// | 0 0 0 1 |
+	mat4_t m = mat4_identity();
+	m.m[0][3] = tx;
+	m.m[1][3] = ty;
+	m.m[2][3] = tz;
+	return m;
+}
