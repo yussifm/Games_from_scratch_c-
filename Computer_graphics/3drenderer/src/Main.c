@@ -7,6 +7,7 @@
 #include "./headers/vector.h"
 #include "./headers/mesh.h"
 #include "./headers/triangle.h"
+#include "./headers/matix.h"
 
 
 
@@ -152,6 +153,14 @@ void update(void) {
 	mesh.rotation.y += 0.01;
 	mesh.rotation.z += 0.01;
 
+	// Scale
+	mesh.scale.x += 0.002;
+
+
+	// create a scale matrix that will be used to multply the mesh vertices
+
+	mat4_t scale_matrix = mat4_make_scale(mesh.scale.x, mesh.scale.y, mesh.scale.z);
+
 
 	// loop all triangle faces of our cube mesh
 	int num_faces = array_length(mesh.faces);
@@ -170,9 +179,15 @@ void update(void) {
 		for (int j = 0; j < 3; j++) {
 			vect3_t transform_vertex = face_vertices[j];
 
-			transform_vertex = vec3_rotate_x(transform_vertex, mesh.rotation.x);
+			// TODO: USe a matrix to scale our original vertex
+
+		
+
+
+
+		/*	transform_vertex = vec3_rotate_x(transform_vertex, mesh.rotation.x);
 			transform_vertex = vec3_rotate_y(transform_vertex, mesh.rotation.y);
-			transform_vertex = vec3_rotate_z(transform_vertex, mesh.rotation.z);
+			transform_vertex = vec3_rotate_z(transform_vertex, mesh.rotation.z);*/
 
 			// Translate the point away from the camera position
 			transform_vertex.z += 5;

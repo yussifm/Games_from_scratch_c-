@@ -9,7 +9,9 @@
 mesh_t mesh = {
     .vertices = NULL,
     .faces = NULL,
-    .rotation = { 0, 0, 0 }
+    .rotation = { 0, 0, 0 }, 
+    .translation = { 0, 0, 0 },
+    .scale = { 1, 1, 1 }
 };
 
 vect3_t cube_vertices[N_CUBE_VERTICES] = {

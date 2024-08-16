@@ -169,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="src\headers\array.h" />
     <ClInclude Include="src\headers\display.h" />
+    <ClInclude Include="src\headers\matix.h" />
     <ClInclude Include="src\headers\mesh.h" />
     <ClInclude Include="src\headers\triangle.h" />
     <ClInclude Include="src\headers\vector.h" />
