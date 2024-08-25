@@ -149,13 +149,13 @@ void update(void) {
 	// initialize array of triangles to render
 	triangles_to_render = NULL;
 
-	mesh.rotation.x += 0.001;
-	mesh.rotation.y += 0.001;
-	mesh.rotation.z += 0.001;
+	mesh.rotation.x += 0.01;
+	mesh.rotation.y += 0.01;
+	mesh.rotation.z += 0.01;
 
 	// Scale
-	mesh.scale.x += 0.000001;
-	mesh.scale.y += 0.000001;
+	mesh.scale.x += 0.00001;
+	mesh.scale.y += 0.00001;
 
 
 	mesh.translation.x += 0.0001;
@@ -189,22 +189,28 @@ void update(void) {
 		for (int j = 0; j < 3; j++) {
 			vect4_t transform_vertex = vec4_from_vec3(face_vertices[j]);
 
+			// Create World MAtix combining Scale, Rotation and Translation 
+			mat4_t world_matrix = mat4_identity();
+			world_matrix = mat4_mul_mat4( scale_matrix , world_matrix);
+			world_matrix = mat4_mul_mat4(rotate_matrix_z , world_matrix);
+			world_matrix = mat4_mul_mat4( rotate_matrix_y , world_matrix);
+			world_matrix = mat4_mul_mat4( rotate_matrix_x, world_matrix);
+			world_matrix = mat4_mul_mat4( translate_matrix , world_matrix);
+
+			// TODO: multily all marics and load the world matrix
+
+
+			// Multiply the worl matrix by the original vector
+			transform_vertex = mat4_mul_vec4(world_matrix, transform_vertex);
+
+
 			// TODO: USe a matrix to scale our original vertex
 
-			transform_vertex = mat4_mul_vec4(scale_matrix, transform_vertex);
+			/*transform_vertex = mat4_mul_vec4(scale_matrix, transform_vertex);
 			transform_vertex = mat4_mul_vec4(rotate_matrix_x, transform_vertex);
 			transform_vertex = mat4_mul_vec4(rotate_matrix_y, transform_vertex);
 			transform_vertex = mat4_mul_vec4(rotate_matrix_z, transform_vertex);
-			transform_vertex = mat4_mul_vec4(translate_matrix, transform_vertex);
-
-
-
-		/*	transform_vertex = vec3_rotate_x(transform_vertex, mesh.rotation.x);
-			transform_vertex = vec3_rotate_y(transform_vertex, mesh.rotation.y);
-			transform_vertex = vec3_rotate_z(transform_vertex, mesh.rotation.z);*/
-
-			// Translate the point away from the camera position
-			/*transform_vertex.z += 5;*/
+			transform_vertex = mat4_mul_vec4(translate_matrix, transform_vertex);*/
 
 			// save the transformed vertex in the array of transformed vertices
 			transformed_vertices[j] = transform_vertex;
