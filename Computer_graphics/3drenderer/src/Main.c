@@ -191,6 +191,7 @@ void update(void) {
 
 			// Create World MAtix combining Scale, Rotation and Translation 
 			mat4_t world_matrix = mat4_identity();
+			// Order matters: scale, rotate (x,y,z), translate (multple is not commutative)
 			world_matrix = mat4_mul_mat4( scale_matrix , world_matrix);
 			world_matrix = mat4_mul_mat4(rotate_matrix_z , world_matrix);
 			world_matrix = mat4_mul_mat4( rotate_matrix_y , world_matrix);
