@@ -114,3 +114,32 @@ float c = cos(angle);
 	 return m;
 	
  }
+
+
+ mat4_t mat4_make_perspective(float fov, float aspect, float znear, float zfar) {
+	 // | 1/(tan(fov/2) * aspect) 0 0 0 |
+	 // | 0 1/tan(fov/2) 0 0 | 
+	 // | 0 0  (far + near) / (far - near)  1 |
+	 // | 0 0 -2 * far * near / (far - near)  0 |
+
+float t = tan(fov / 2);
+	 mat4_t m = { { {0}} };
+	 m.m[0][0] = aspect * (1 / t);
+	 m.m[1][1] = 1 / t;
+	 m.m[2][2] = zfar  / (zfar - znear);
+	 m.m[2][3] = (-zfar * znear) / (zfar - znear);
+	 m.m[3][2] = 1.0;
+	 return m;
+ }
+
+
+ vect4_t mat4_mul_vec4_project(mat4_t mat_proj, vect4_t v) {
+	 vect4_t result = mat4_mul_vec4(mat_proj, v);
+
+	 if (result.w != 0.0) {
+		 result.x /= result.w;
+		 result.y /= result.w;
+		 result.z /= result.w; 
+	 }
+	 return result;
+ }

@@ -20,7 +20,8 @@ int i_prev_frame_time = 0;
 
 vect3_t camera_position = { 0,0,0};
 //vect3_t mesh.rotation = { .x = 0, .y = 0, .z = 0 };
-float fov_factor = 448;
+//float fov_factor = 448;
+mat4_t proj_matrix;
 
 
 // Global Variables
@@ -117,6 +118,13 @@ void setup(void) {
 		i_Windown_height
 	);
 
+	// initialize perspective projection matrix
+	float fov = M_PI/3.0; // 60 degrees
+	float aspect = (float)i_Windown_width / (float)i_Windown_height;
+	float znear = 0.1;
+	float zfar = 100.0;
+	proj_matrix = mat4_make_perspective(fov, aspect, znear, zfar);
+
 	// Loads the cube values in the mesh data structure 
 	load_cube_mesh_data();
 	/*load_obj_file_data("./assets/f22.obj");*/
@@ -129,16 +137,16 @@ void setup(void) {
 
 // 
 // Function that recive a 3D vector and returns a projected 2D point
-vect2_t project(vect3_t point) {
-
-	vect2_t projected_point = {
-	 .x = (fov_factor * point.x) / point.z,
-	 .y = (fov_factor * point.y) / point.z
-	};
-
-
-	return projected_point;
-}
+//vect2_t project(vect3_t point) {
+//
+//	vect2_t projected_point = {
+//	 .x = (fov_factor * point.x) / point.z,
+//	 .y = (fov_factor * point.y) / point.z
+//	};
+//
+//
+//	return projected_point;
+//}
 void update(void) {
 
 
@@ -154,12 +162,12 @@ void update(void) {
 	mesh.rotation.z += 0.01;
 
 	// Scale
-	mesh.scale.x += 0.00001;
-	mesh.scale.y += 0.00001;
+	//mesh.scale.x += 0.00001;
+	//mesh.scale.y += 0.00001;
 
 
-	mesh.translation.x += 0.0001;
-	mesh.translation.z = 5;
+	//mesh.translation.x += 0.0001;
+	mesh.translation.z = 20;
 	
 
 
@@ -253,16 +261,21 @@ void update(void) {
 
 	/*	triangle_t projected_triangle;*/
 
-		vect2_t projected_points[3];
+		vect4_t projected_points[3];
 		// loop all three vertices to perform projection
 		for (int j = 0; j < 3; j++ ) {
 
 			// Project the current vertex
-			 projected_points[j] = project(vec3_from_vec4(transformed_vertices[j]));
+			/* projected_points[j] = project(vec3_from_vec4(transformed_vertices[j]));*/
+			projected_points[j] = mat4_mul_vec4_project(proj_matrix, transformed_vertices[j]);
 
-			// Scale and translate the projected points to the middle of the screen
-			projected_points[j].x += (i_Windown_width / 2);
-			projected_points[j].y += (i_Windown_height / 2);
+			// Scale into the view 
+			projected_points[j].x *= (i_Windown_width / 2.0);
+			projected_points[j].y *= (i_Windown_height / 2.0);
+
+			// translate the projected points to the middle of the screen
+			projected_points[j].x += (i_Windown_width / 2.0);
+			projected_points[j].y += (i_Windown_height / 2.0);
 
 			//projected_triangle.points[j] = projected_point;
 		}
