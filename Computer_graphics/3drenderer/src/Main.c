@@ -149,24 +149,27 @@ void update(void) {
 	// initialize array of triangles to render
 	triangles_to_render = NULL;
 
-	/*mesh.rotation.x += 0.01;
-	mesh.rotation.y += 0.01;
-	mesh.rotation.z += 0.01;*/
+	mesh.rotation.x += 0.001;
+	mesh.rotation.y += 0.001;
+	mesh.rotation.z += 0.001;
 
 	// Scale
-	/*mesh.scale.x += 0.001;
-	mesh.scale.y += 0.001;*/
+	mesh.scale.x += 0.000001;
+	mesh.scale.y += 0.000001;
 
 
-	mesh.translation.x += 0.01;
+	mesh.translation.x += 0.0001;
 	mesh.translation.z = 5;
 	
 
 
-	// create a scale matrix that will be used to multply the mesh vertices
+	// create a scale, translation, and rotation matrix that will be used to multply the mesh vertices
 
 	mat4_t scale_matrix = mat4_make_scale(mesh.scale.x, mesh.scale.y, mesh.scale.z);
 	mat4_t translate_matrix = mat4_make_translation(mesh.translation.x, mesh.translation.y, mesh.translation.z);
+	mat4_t rotate_matrix_x = mat4_make_rotation_x(mesh.rotation.x);
+	mat4_t rotate_matrix_y = mat4_make_rotation_y(mesh.rotation.x);
+	mat4_t rotate_matrix_z = mat4_make_rotation_z(mesh.rotation.x);
 
 
 	// loop all triangle faces of our cube mesh
@@ -189,6 +192,9 @@ void update(void) {
 			// TODO: USe a matrix to scale our original vertex
 
 			transform_vertex = mat4_mul_vec4(scale_matrix, transform_vertex);
+			transform_vertex = mat4_mul_vec4(rotate_matrix_x, transform_vertex);
+			transform_vertex = mat4_mul_vec4(rotate_matrix_y, transform_vertex);
+			transform_vertex = mat4_mul_vec4(rotate_matrix_z, transform_vertex);
 			transform_vertex = mat4_mul_vec4(translate_matrix, transform_vertex);
 
 
