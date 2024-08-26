@@ -5,6 +5,7 @@
 #include "./headers/array.h"
 #include "./headers/display.h"
 #include "./headers/vector.h"
+#include "./headers/light.h"
 #include "./headers/mesh.h"
 #include "./headers/triangle.h"
 #include "./headers/matix.h"
@@ -119,15 +120,15 @@ void setup(void) {
 	);
 
 	// initialize perspective projection matrix
-	float fov = M_PI/3.0; // 60 degrees
+	float fov = M_PI/1.5; 
 	float aspect = (float)i_Windown_width / (float)i_Windown_height;
-	float znear = 0.1;
-	float zfar = 100.0;
+	float znear = 0.5;
+	float zfar = 10.0;
 	proj_matrix = mat4_make_perspective(fov, aspect, znear, zfar);
 
 	// Loads the cube values in the mesh data structure 
-	load_cube_mesh_data();
-	/*load_obj_file_data("./assets/f22.obj");*/
+	//load_cube_mesh_data();
+	load_obj_file_data("./assets/cube.obj");
 
 
 }
@@ -167,7 +168,7 @@ void update(void) {
 
 
 	//mesh.translation.x += 0.0001;
-	mesh.translation.z = 20;
+	mesh.translation.z = 5;
 	
 
 
@@ -226,7 +227,7 @@ void update(void) {
 		}
 
 		// Check backface culling
-		if (cull_method == CULL_BACKFACE) {
+	
 			vect3_t vector_a = vec3_from_vec4(transformed_vertices[0]);  /*   A   */
 			vect3_t vector_b = vec3_from_vec4(transformed_vertices[1]);  /*  / \  */
 			vect3_t vector_c = vec3_from_vec4(transformed_vertices[2]);  /* C---B */
@@ -252,10 +253,11 @@ void update(void) {
 
 			// Bypass the triangles that are looking away from the camera
 			// to get the inverse > 0
-			if (dot_normal_camera < 0) {
-				continue;
+			if (cull_method == CULL_BACKFACE) {
+				if (dot_normal_camera < 0) {
+					continue;
+				}
 			}
-		}
 	
 
 
@@ -283,6 +285,13 @@ void update(void) {
 		// calculate the average depth for each face based on the vertices after transformation
 		float avg_depth = (transformed_vertices[0].z + transformed_vertices[1].z + transformed_vertices[2].z) / 3.0;
 		
+		// calculate the shade intensity based on how aliged is the face normal
+		// and the inverse of the light direction
+		// 
+		float light_intensity_factor = -vec3_dot(normal, light.direction);
+		// Calculate the color of the triangle based on the light angle
+		uint32_t triangle_color = light_apply_intensity(mesh_face.color, light_intensity_factor);
+
 
 		triangle_t projected_triangle = {
 			.points = {
@@ -290,7 +299,7 @@ void update(void) {
 				{projected_points[1].x, projected_points[1].y},
 				{projected_points[2].x, projected_points[2].y},
 		},
-		.color = mesh_face.color, 
+		.color = triangle_color,
 		.avg_depth = avg_depth
 		};
 		// Save the projected triangle in the array of projected triangles to render
@@ -361,9 +370,9 @@ void render(void) {
 
 		// Draw triangle vertex points 
 		if (render_method == RENDER_WIRE_VERTX) {
-		 draw_react(triangle.points[0].x  / 2, triangle.points[0].y / 2, 6, 6, 0xFF00FF00);
-		 draw_react(triangle.points[1].x  / 2, triangle.points[1].y / 2, 6, 6, 0xFF00FF00);
-		 draw_react(triangle.points[2].x  / 2, triangle.points[2].y / 2, 6, 6, 0xFF00FF00);
+		 draw_react(triangle.points[0].x  / 2.0, triangle.points[0].y / 2.0, 6, 6, 0xFF00FF00);
+		 draw_react(triangle.points[1].x  / 2.0, triangle.points[1].y / 2.0, 6, 6, 0xFF00FF00);
+		 draw_react(triangle.points[2].x  / 2.0, triangle.points[2].y / 2.0, 6, 6, 0xFF00FF00);
 		
 		}
 

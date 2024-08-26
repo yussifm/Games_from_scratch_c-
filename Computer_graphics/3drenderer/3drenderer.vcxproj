@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="src\array.c" />
     <ClCompile Include="src\display.c" />
+    <ClCompile Include="src\light.c" />
     <ClCompile Include="src\Main.c" />
     <ClCompile Include="src\matrix.c" />
     <ClCompile Include="src\mesh.c" />
@@ -170,6 +171,7 @@
   <ItemGroup>
     <ClInclude Include="src\headers\array.h" />
     <ClInclude Include="src\headers\display.h" />
+    <ClInclude Include="src\headers\light.h" />
     <ClInclude Include="src\headers\matix.h" />
     <ClInclude Include="src\headers\mesh.h" />
     <ClInclude Include="src\headers\triangle.h" />
