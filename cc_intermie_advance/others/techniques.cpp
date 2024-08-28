@@ -1,17 +1,18 @@
 #include <array>
+#include <chrono>
 #include <iostream>
 #include <vector>
-#include <chrono>
 
+
+// using std;
+using namespace std;
+using namespace std::chrono;
+using namespace std::chrono_literals;
 
 // Compile time constants using constexpr
-  constexpr int GetCompileTimeResult(
-  int x, int y
-){ return x + y; }
-
+constexpr int GetCompileTimeResult(int x, int y) { return x + y; }
 
 int main(int argc, char const *argv[]) {
-
   /*
   The C++ standard library’s version of a dynamic, resizable array is
   available as a std::vector after including the <vector> header.
@@ -96,9 +97,9 @@ int main(int argc, char const *argv[]) {
   std::cout << "Capacity: " << myvecTwo.capacity() << std::endl;
   std::cout << myvecTwo[1] << std::endl;
 
-
-// Compile time constants using constexpr
-std::cout << "Compile time constants using constexpr: " << GetCompileTimeResult(1, 2) << std::endl;
+  // Compile time constants using constexpr
+  std::cout << "Compile time constants using constexpr: "
+            << GetCompileTimeResult(1, 2) << std::endl;
 
   return 0;
 }
