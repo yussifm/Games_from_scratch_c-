@@ -128,7 +128,7 @@ void setup(void) {
 
 	// Loads the cube values in the mesh data structure 
 	//load_cube_mesh_data();
-	load_obj_file_data("./assets/cube.obj");
+	load_obj_file_data("./assets/f22.obj");
 
 
 }
@@ -158,9 +158,9 @@ void update(void) {
 	// initialize array of triangles to render
 	triangles_to_render = NULL;
 
-	mesh.rotation.x += 0.01;
-	mesh.rotation.y += 0.01;
-	mesh.rotation.z += 0.01;
+	mesh.rotation.x += 0.005;
+	mesh.rotation.y += 0.005;
+    mesh.rotation.z += 0.005;
 
 	// Scale
 	//mesh.scale.x += 0.00001;
@@ -272,8 +272,11 @@ void update(void) {
 			projected_points[j] = mat4_mul_vec4_project(proj_matrix, transformed_vertices[j]);
 
 			// Scale into the view 
-			projected_points[j].x *= (i_Windown_width / 2.0);
-			projected_points[j].y *= (i_Windown_height / 2.0);
+			projected_points[j].x *= (i_Windown_width / 2.5);
+			projected_points[j].y *= (i_Windown_height / 2.5);
+
+			// invert the y axis
+			projected_points[j].y *= -1.0;
 
 			// translate the projected points to the middle of the screen
 			projected_points[j].x += (i_Windown_width / 2.0);
