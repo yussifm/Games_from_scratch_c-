@@ -165,6 +165,7 @@
     <ClCompile Include="src\Main.c" />
     <ClCompile Include="src\matrix.c" />
     <ClCompile Include="src\mesh.c" />
+    <ClCompile Include="src\texture.c" />
     <ClCompile Include="src\triangle.c" />
     <ClCompile Include="src\vector.c" />
   </ItemGroup>
@@ -174,6 +175,7 @@
     <ClInclude Include="src\headers\light.h" />
     <ClInclude Include="src\headers\matix.h" />
     <ClInclude Include="src\headers\mesh.h" />
+    <ClInclude Include="src\headers\texture.h" />
     <ClInclude Include="src\headers\triangle.h" />
     <ClInclude Include="src\headers\vector.h" />
   </ItemGroup>
