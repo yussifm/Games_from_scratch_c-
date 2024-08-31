@@ -201,9 +201,10 @@ void draw_texture_triangle(
             }
 
             for (int x = x_start; x < x_end; x++) {
+                draw_pixel(x,y, 0xFFFF00FF);
                 // Draw our pixel with the color that comes from the texture
-                draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2,
-                    v2);
+              /*  draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2,
+                    v2);*/
             }
         }
     }
@@ -227,9 +228,10 @@ void draw_texture_triangle(
             }
 
             for (int x = x_start; x < x_end; x++) {
+                draw_pixel(x, y, 0xFFFF00FF);
                 // Draw our pixel with the color that comes from the texture
-                draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2,
-                    v2);
+               /* draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2,
+                    v2);*/
             }
         }
     }
