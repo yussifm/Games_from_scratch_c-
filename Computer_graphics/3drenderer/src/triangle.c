@@ -10,6 +10,12 @@ void i_swap(int* a, int* b) {
 	*b = temp;
 }
 
+void f_swap(float* a, float* b) {
+	float temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 void fill_flat_top_triangle(int x0, int y0, int x1, int y1, int x2, int y2, uint32_t color){
    
     // find the two slopes (two legs of the triangle)
@@ -93,6 +99,58 @@ void draw_filled_triangle(int x0, int y0, int x1, int y1, int x2, int y2, uint32
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
+vect3_t barycentric_weights(vect2_t a, vect2_t b, vect2_t c, vect2_t p) {
+    // Find the vectors between the vertices ABC and point p
+    vect2_t ac = vect2_sub(c, a);
+    vect2_t ab = vect2_sub(b, a);
+    vect2_t ap = vect2_sub(p, a);
+    vect2_t pc = vect2_sub(c, p);
+    vect2_t pb = vect2_sub(b, p);
+
+    // Compute the area of the full parallegram/triangle ABC using 2D cross
+    // product
+    float area_parallelogram_abc = (ac.x * ab.y - ac.y * ab.x);  // || AC x AB ||
+
+    // Alpha is the area of the small parallelogram/triangle PBC divided by the
+    // area of the full parallelogram/triangle ABC
+    float alpha = (pc.x * pb.y - pc.y * pb.x) / area_parallelogram_abc;
+
+    // Beta is the area of the small parallelogram/triangle APC divided by the
+    // area of the full parallelogram/triangle ABC
+    float beta = (ac.x * ap.y - ac.y * ap.x) / area_parallelogram_abc;
+
+    // Weight gamma is easily found since barycentric coordinates always add up
+    // to 1.0
+    float gamma = 1 - alpha - beta;
+
+    vect3_t weights = { alpha, beta, gamma };
+    return weights;
+}
+///////////////////////////////////////////////////////////////////////////////
+// Function to draw the textured pixel at position x and y using interpolation
+///////////////////////////////////////////////////////////////////////////////
+void draw_texel(int x, int y, uint32_t* texture, vect2_t point_a, vect2_t point_b,
+    vect2_t point_c, float u0, float v0, float u1, float v1,
+    float u2, float v2) {
+    vect2_t point_p = { x, y };
+    vect3_t weights = barycentric_weights(point_a, point_b, point_c, point_p);
+
+    float alpha = weights.x;
+    float beta = weights.y;
+    float gamma = weights.z;
+
+    // Perform the interpolation of all U and V values using barycentric weights
+    float interpolated_u = (u0)*alpha + (u1)*beta + (u2)*gamma;
+    float interpolated_v = (v0)*alpha + (v1)*beta + (v2)*gamma;
+
+    // Map the UV coordinate to the full texture width and height
+    int tex_x = abs((int)(interpolated_u * texture_width));
+    int tex_y = abs((int)(interpolated_v * texture_height));
+
+    draw_pixel(x, y, texture[(texture_width * tex_y) + tex_x]);
+}
+
 void draw_texture_triangle(
     int x0, int y0, float u0, float v0,
     int x1, int y1, float u1, float v1,
@@ -101,22 +159,22 @@ void draw_texture_triangle(
     ) {
     // We need to sort the vertices by y-coordinate ascending (y0 < y1 < y2)
     if (y0 > y1) {
-        int_swap(&y0, &y1);
-        int_swap(&x0, &x1);
-        float_swap(&u0, &u1);
-        float_swap(&v0, &v1);
+        i_swap(&y0, &y1);
+        i_swap(&x0, &x1);
+        f_swap(&u0, &u1);
+        f_swap(&v0, &v1);
     }
     if (y1 > y2) {
-        int_swap(&y1, &y2);
-        int_swap(&x1, &x2);
-        float_swap(&u1, &u2);
-        float_swap(&v1, &v2);
+        i_swap(&y1, &y2);
+        i_swap(&x1, &x2);
+        f_swap(&u1, &u2);
+        f_swap(&v1, &v2);
     }
     if (y0 > y1) {
-        int_swap(&y0, &y1);
-        int_swap(&x0, &x1);
-        float_swap(&u0, &u1);
-        float_swap(&v0, &v1);
+        i_swap(&y0, &y1);
+        i_swap(&x0, &x1);
+        f_swap(&u0, &u1);
+        f_swap(&v0, &v1);
     }
 
     // Create vector points and texture coords after we sort the vertices
@@ -139,7 +197,7 @@ void draw_texture_triangle(
             int x_end = x0 + (y - y0) * inv_slope_2;
 
             if (x_end < x_start) {
-                int_swap(&x_start, &x_end);  // swap if x_start is to the right of x_end
+                i_swap(&x_start, &x_end);  // swap if x_start is to the right of x_end
             }
 
             for (int x = x_start; x < x_end; x++) {
@@ -165,7 +223,7 @@ void draw_texture_triangle(
             int x_end = x0 + (y - y0) * inv_slope_2;
 
             if (x_end < x_start) {
-                int_swap(&x_start, &x_end);  // swap if x_start is to the right of x_end
+                i_swap(&x_start, &x_end);  // swap if x_start is to the right of x_end
             }
 
             for (int x = x_start; x < x_end; x++) {
