@@ -104,9 +104,9 @@ vect3_t barycentric_weights(vect2_t a, vect2_t b, vect2_t c, vect2_t p) {
     // Find the vectors between the vertices ABC and point p
     vect2_t ac = vect2_sub(c, a);
     vect2_t ab = vect2_sub(b, a);
-    vect2_t ap = vect2_sub(p, a);
     vect2_t pc = vect2_sub(c, p);
     vect2_t pb = vect2_sub(b, p);
+    vect2_t ap = vect2_sub(p, a);
 
     // Compute the area of the full parallegram/triangle ABC using 2D cross
     // product
@@ -122,7 +122,7 @@ vect3_t barycentric_weights(vect2_t a, vect2_t b, vect2_t c, vect2_t p) {
 
     // Weight gamma is easily found since barycentric coordinates always add up
     // to 1.0
-    float gamma = 1 - alpha - beta;
+    float gamma = 1.0 - alpha - beta;
 
     vect3_t weights = { alpha, beta, gamma };
     return weights;
