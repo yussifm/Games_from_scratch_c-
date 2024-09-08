@@ -33,10 +33,17 @@ void fill_flat_top_triangle(int x0,int y0, int x1, int y1, int x2, int y2, uint3
 void fill_flat_bottom_triangle(int x0, int y0, int x1, int y1,int x2, int y2, uint32_t color);
 
 // TODO: Draw Texture
+vect3_t barycentric_weights(vect2_t a, vect2_t b, vect2_t c, vect2_t p);
+void draw_texel(int x, int y, uint32_t* texture, vect2_t point_a, vect2_t point_b,
+	vect2_t point_c, float u0, float v0, float u1, float v1,
+	float u2, float v2);
+
 void draw_texture_triangle(
 	int x0, int y0, float u0, float v0, 
 	int x1, int y1, float u1, float v1,
-	int x2, int y2, float u2, float v2, uint32_t* texture);
+	int x2, int y2, float u2, float v2, uint32_t* texture
+	
+	);
 
 #endif
 

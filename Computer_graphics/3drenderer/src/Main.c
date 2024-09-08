@@ -33,7 +33,7 @@ void setup(void);
 void update(void);
 void render(void);
 void process_input(void);
-vect2_t project(vect3_t point);
+//vect2_t project(vect3_t point);
 void free_resources(void);
 
 
@@ -67,6 +67,46 @@ int main(int argc, char* argv[]) {
 
 
 // Function Definitions
+
+void setup(void) {
+	// Initialize render mode and triangle culling method
+	render_method = RENDER_WIRE;
+	cull_method = CULL_BACKFACE;
+
+
+
+	// Allocate the required memory in bytes to hold/ store the color buffer
+	Uint32_color_buffer = (Uint32*)malloc(sizeof(Uint32) * i_Windown_width * i_Windown_height);
+
+	// Creating a SDL texture that is used to display the color buffer
+	p_color_buffer_texture = SDL_CreateTexture(
+
+		p_renderer,
+		SDL_PIXELFORMAT_ARGB8888,
+		SDL_TEXTUREACCESS_STREAMING,
+		i_Windown_width,
+		i_Windown_height
+	);
+
+	// initialize perspective projection matrix
+	float fov = M_PI / 3.0;
+	float aspect = (float)i_Windown_width / (float)i_Windown_height;
+	float znear = 0.1;
+	float zfar = 100.0;
+	proj_matrix = mat4_make_perspective(fov, aspect, znear, zfar);
+
+	// Manually load the hardcoded texture data from the static array
+	mesh_texture = (uint32_t*)REDBRICK_TEXTURE;
+	texture_width = 64;
+	texture_height = 64;
+
+	// Loads the cube values in the mesh data structure 
+	load_cube_mesh_data();
+	//load_obj_file_data("./assets/f22.obj");
+
+
+}
+//
 
 void process_input(void) {
 	SDL_Event event;
@@ -103,45 +143,7 @@ void process_input(void) {
 	}
 }
 //
-void setup(void) {
-	// Initialize render mode and triangle culling method
-	render_method  = RENDER_WIRE;
-	cull_method = CULL_BACKFACE;
 
-
-
-	// Allocate the required memory in bytes to hold/ store the color buffer
-	Uint32_color_buffer = (Uint32*)malloc(sizeof(Uint32) * i_Windown_width * i_Windown_height);
-
-	// Creating a SDL texture that is used to display the color buffer
-	p_color_buffer_texture = SDL_CreateTexture(
-
-		p_renderer,
-		SDL_PIXELFORMAT_ARGB8888,
-		SDL_TEXTUREACCESS_STREAMING,
-		i_Windown_width,
-		i_Windown_height
-	);
-
-	// initialize perspective projection matrix
-	float fov = M_PI/1.5; 
-	float aspect = (float)i_Windown_width / (float)i_Windown_height;
-	float znear = 0.5;
-	float zfar = 10.0;
-	proj_matrix = mat4_make_perspective(fov, aspect, znear, zfar);
-
-	// Manually load the hardcoded texture data from the static array
-	mesh_texture = (uint32_t*)REDBRICK_TEXTURE;
-	texture_width = 64;
-	texture_height = 64;
-
-	// Loads the cube values in the mesh data structure 
-      load_cube_mesh_data();
-	//load_obj_file_data("./assets/f22.obj");
-
-
-}
-//
 
 
 
@@ -327,18 +329,25 @@ void update(void) {
 
 	// Sort the triangles to render by their avg_depth
 	int num_triangles = array_length(triangles_to_render);
-	for (int i = 0; i < num_triangles; i++)
-	{
-		for (int j = i; j < num_triangles; j++) {
-			if (triangles_to_render[i].avg_depth < triangles_to_render[j].avg_depth) {
-				// Swap the triangles positions int the array
-				triangle_t temp = triangles_to_render[i];
-				triangles_to_render[i] = triangles_to_render[j];
-				triangles_to_render[j] = temp;
+	if (triangles_to_render != NULL) {
+		int num_triangles = array_length(triangles_to_render);
+
+		for (int i = 0; i < num_triangles; i++) {
+			for (int j = i + 1; j < num_triangles; j++) {  // Start j from i+1 to avoid unnecessary comparisons
+				if (triangles_to_render[i].avg_depth < triangles_to_render[j].avg_depth) {
+					// Swap the triangles' positions in the array
+					triangle_t temp = triangles_to_render[i];
+					triangles_to_render[i] = triangles_to_render[j];
+					triangles_to_render[j] = temp;
+				}
 			}
-		
 		}
 	}
+	else {
+		// Handle the case where triangles_to_render is NULL
+		fprintf(stderr, "Error: triangles_to_render is NULL.\n");
+	}
+
 }
 //
 
@@ -374,11 +383,11 @@ void render(void) {
 		// Draw Texture TRaingle 
 		if (render_method == RENDER_TEXTURE || render_method == RENDER_TEXTURE_WIRE) {
 			draw_texture_triangle(
-				triangle.points[0].x, triangle.points[0].y, triangle.texcoords[0].u,
-				triangle.texcoords[0].v, triangle.points[1].x, triangle.points[1].y,
-				triangle.texcoords[1].u, triangle.texcoords[1].v,
-				triangle.points[2].x, triangle.points[2].y, triangle.texcoords[2].u,
-				triangle.texcoords[2].v, mesh_texture);
+				triangle.points[0].x, triangle.points[0].y, triangle.texcoords[0].u,triangle.texcoords[0].v,
+				triangle.points[1].x, triangle.points[1].y,triangle.texcoords[1].u, triangle.texcoords[1].v,
+				triangle.points[2].x, triangle.points[2].y, triangle.texcoords[2].u,triangle.texcoords[2].v,
+				mesh_texture
+			);
 		
 		}
 

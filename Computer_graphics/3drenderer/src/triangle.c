@@ -104,9 +104,9 @@ vect3_t barycentric_weights(vect2_t a, vect2_t b, vect2_t c, vect2_t p) {
     // Find the vectors between the vertices ABC and point p
     vect2_t ac = vect2_sub(c, a);
     vect2_t ab = vect2_sub(b, a);
+    vect2_t ap = vect2_sub(p, a);
     vect2_t pc = vect2_sub(c, p);
     vect2_t pb = vect2_sub(b, p);
-    vect2_t ap = vect2_sub(p, a);
 
     // Compute the area of the full parallegram/triangle ABC using 2D cross
     // product
@@ -133,6 +133,7 @@ vect3_t barycentric_weights(vect2_t a, vect2_t b, vect2_t c, vect2_t p) {
 void draw_texel(int x, int y, uint32_t* texture, vect2_t point_a, vect2_t point_b,
     vect2_t point_c, float u0, float v0, float u1, float v1,
     float u2, float v2) {
+
     vect2_t point_p = { x, y };
     vect3_t weights = barycentric_weights(point_a, point_b, point_c, point_p);
 
@@ -148,7 +149,8 @@ void draw_texel(int x, int y, uint32_t* texture, vect2_t point_a, vect2_t point_
     int tex_x = abs((int)(interpolated_u * texture_width));
     int tex_y = abs((int)(interpolated_v * texture_height));
 
-    draw_pixel(x, y, texture[(texture_width * tex_y) + tex_x]);
+     draw_pixel(x, y, texture[(texture_width * tex_y) + tex_x]);
+
 }
 
 void draw_texture_triangle(
@@ -201,10 +203,10 @@ void draw_texture_triangle(
             }
 
             for (int x = x_start; x < x_end; x++) {
-                draw_pixel(x,y, 0xFFFF00FF);
+                //draw_pixel(x,y, 0xFFFF00FF);
                 // Draw our pixel with the color that comes from the texture
-              /*  draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2,
-                    v2);*/
+                draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2,
+                    v2);
             }
         }
     }
@@ -228,10 +230,10 @@ void draw_texture_triangle(
             }
 
             for (int x = x_start; x < x_end; x++) {
-                draw_pixel(x, y, 0xFFFF00FF);
+               // draw_pixel(x, y, 0xFFFF00FF);
                 // Draw our pixel with the color that comes from the texture
-               /* draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2,
-                    v2);*/
+                draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2,
+                    v2);
             }
         }
     }
