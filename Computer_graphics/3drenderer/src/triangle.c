@@ -142,14 +142,23 @@ void draw_texel(int x, int y, uint32_t* texture, vect2_t point_a, vect2_t point_
     float gamma = weights.z;
 
     // Perform the interpolation of all U and V values using barycentric weights
-    float interpolated_u = (u0)*alpha + (u1)*beta + (u2)*gamma;
-    float interpolated_v = (v0)*alpha + (v1)*beta + (v2)*gamma;
+    float interpolated_u = u0 * alpha + u1 * beta + u2 * gamma;
+    float interpolated_v = v0 * alpha + v1 * beta + v2 * gamma;
+
 
     // Map the UV coordinate to the full texture width and height
-    int tex_x = abs((int)(interpolated_u * texture_width));
-    int tex_y = abs((int)(interpolated_v * texture_height));
+   // Map the UV coordinate to the full texture width and height
+    int tex_x = (int)(interpolated_u * texture_width);
+    int tex_y = (int)(interpolated_v * texture_height);
 
-     draw_pixel(x, y, texture[(texture_width * tex_y) + tex_x]);
+    // Ensure tex_x and tex_y are within the texture bounds
+    if (tex_x < 0) tex_x = 0;
+    if (tex_x >= texture_width) tex_x = texture_width - 1;
+    if (tex_y < 0) tex_y = 0;
+    if (tex_y >= texture_height) tex_y = texture_height - 1;
+
+    draw_pixel(x, y, texture[(texture_width * tex_y) + tex_x]);
+
 
 }
 
@@ -159,36 +168,26 @@ void draw_texture_triangle(
     int x2, int y2, float u2, float v2, 
     uint32_t* texture
     ) {
-    // We need to sort the vertices by y-coordinate ascending (y0 < y1 < y2)
-    if (y0 > y1) {
-        i_swap(&y0, &y1);
-        i_swap(&x0, &x1);
-        f_swap(&u0, &u1);
-        f_swap(&v0, &v1);
-    }
-    if (y1 > y2) {
-        i_swap(&y1, &y2);
-        i_swap(&x1, &x2);
-        f_swap(&u1, &u2);
-        f_swap(&v1, &v2);
-    }
-    if (y0 > y1) {
-        i_swap(&y0, &y1);
-        i_swap(&x0, &x1);
-        f_swap(&u0, &u1);
-        f_swap(&v0, &v1);
-    }
+    // Sort vertices by y-coordinate (ascending)
+    if (y0 > y1) { i_swap(&y0, &y1); i_swap(&x0, &x1); f_swap(&u0, &u1); f_swap(&v0, &v1); }
+    if (y1 > y2) { i_swap(&y1, &y2); i_swap(&x1, &x2); f_swap(&u1, &u2); f_swap(&v1, &v2); }
+    if (y0 > y1) { i_swap(&y0, &y1); i_swap(&x0, &x1); f_swap(&u0, &u1); f_swap(&v0, &v1); }
 
-    // Create vector points and texture coords after we sort the vertices
     vect2_t point_a = { x0, y0 };
     vect2_t point_b = { x1, y1 };
     vect2_t point_c = { x2, y2 };
 
+    float inv_slope_1 = 0;
+    float inv_slope_2 = 0;
+
+    if (y1 - y0 != 0) inv_slope_1 = (float)(x1 - x0) / abs(y1 - y0);
+    if (y2 - y0 != 0) inv_slope_2 = (float)(x2 - x0) / abs(y2 - y0);
+  
+
     ///////////////////////////////////////////////////////
     // Render the upper part of the triangle (flat-bottom)
     ///////////////////////////////////////////////////////
-    float inv_slope_1 = 0;
-    float inv_slope_2 = 0;
+  
 
     if (y1 - y0 != 0) inv_slope_1 = (float)(x1 - x0) / abs(y1 - y0);
     if (y2 - y0 != 0) inv_slope_2 = (float)(x2 - x0) / abs(y2 - y0);
