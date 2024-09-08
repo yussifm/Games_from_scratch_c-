@@ -167,6 +167,7 @@
     <ClCompile Include="src\mesh.c" />
     <ClCompile Include="src\texture.c" />
     <ClCompile Include="src\triangle.c" />
+    <ClCompile Include="src\upng.c" />
     <ClCompile Include="src\vector.c" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="src\headers\mesh.h" />
     <ClInclude Include="src\headers\texture.h" />
     <ClInclude Include="src\headers\triangle.h" />
+    <ClInclude Include="src\headers\upng.h" />
     <ClInclude Include="src\headers\vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

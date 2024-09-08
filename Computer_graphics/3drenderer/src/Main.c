@@ -82,27 +82,28 @@ void setup(void) {
 	p_color_buffer_texture = SDL_CreateTexture(
 
 		p_renderer,
-		SDL_PIXELFORMAT_ARGB8888,
+		SDL_PIXELFORMAT_RGBA32,
 		SDL_TEXTUREACCESS_STREAMING,
 		i_Windown_width,
 		i_Windown_height
 	);
 
 	// initialize perspective projection matrix
-	float fov = M_PI / 3.0;
+	float fov = M_PI / 1.5;
 	float aspect = (float)i_Windown_width / (float)i_Windown_height;
-	float znear = 0.1;
-	float zfar = 100.0;
+	float znear = 0.5;
+	float zfar = 10.0;
 	proj_matrix = mat4_make_perspective(fov, aspect, znear, zfar);
 
 	// Manually load the hardcoded texture data from the static array
-	mesh_texture = (uint32_t*)REDBRICK_TEXTURE;
-	texture_width = 64;
-	texture_height = 64;
+	//mesh_texture = (uint32_t*)REDBRICK_TEXTURE;
+	//texture_width = 64;
+	//texture_height = 64;
 
 	// Loads the cube values in the mesh data structure 
-	load_cube_mesh_data();
-	//load_obj_file_data("./assets/f22.obj");
+	//load_cube_mesh_data();
+	load_obj_file_data("./assets/cube.obj");
+	load_png_texture_data("./assets/cube.png");
 
 
 }
@@ -198,9 +199,9 @@ void update(void) {
 		face_t mesh_face = mesh.faces[i];
 
 		vect3_t face_vertices[3];
-		face_vertices[0] = mesh.vertices[mesh_face.a - 1];
-		face_vertices[1] = mesh.vertices[mesh_face.b - 1];
-		face_vertices[2] = mesh.vertices[mesh_face.c - 1];
+		face_vertices[0] = mesh.vertices[mesh_face.a];
+		face_vertices[1] = mesh.vertices[mesh_face.b];
+		face_vertices[2] = mesh.vertices[mesh_face.c];
 
 	
 
@@ -433,4 +434,5 @@ void free_resources(void) {
 	free(Uint32_color_buffer);
 	array_free(mesh.faces);
 	array_free(mesh.vertices);
+	upng_free(png_texture);
 }

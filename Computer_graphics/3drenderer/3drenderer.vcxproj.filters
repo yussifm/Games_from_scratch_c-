@@ -42,6 +42,9 @@
     <ClCompile Include="src\texture.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\upng.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\headers\display.h">
@@ -66,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\headers\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\upng.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -160,20 +160,14 @@ void draw_texel(
      // 
      interpolated_reciprocal_w = (1 / point_a.w) * alpha + (1 / point_b.w) * beta + (1 / point_c.w) * gamma;
 
+	// Perform the interpolation of all W values using barycentric weights
      interpolated_u /= interpolated_reciprocal_w;
      interpolated_v /= interpolated_reciprocal_w;
 
-
-
-
-	// Perform the interpolation of all W values using barycentric weights
-
-
-
     // Map the UV coordinate to the full texture width and height
    // Map the UV coordinate to the full texture width and height
-    int tex_x = (int)(interpolated_u * texture_width);
-    int tex_y = (int)(interpolated_v * texture_height);
+    int tex_x = (int)(interpolated_u * texture_width) % texture_width;
+    int tex_y = (int)(interpolated_v * texture_height) % texture_height;
 
     // Ensure tex_x and tex_y are within the texture bounds
     if (tex_x < 0) tex_x = 0;
@@ -218,6 +212,14 @@ void draw_texture_triangle(
         f_swap(&u0, &u1); 
         f_swap(&v0, &v1); 
     }
+
+    // Flip the V component to account for inverted UV-coordinates
+    v0 = 1.0 - v0;
+	v1 = 1.0 - v1;
+	v2 = 1.0 - v2;
+
+
+    //
 
     vect4_t point_a = { x0, y0, z0, w0 };
     vect4_t point_b = { x1, y1, z1, z2 };
