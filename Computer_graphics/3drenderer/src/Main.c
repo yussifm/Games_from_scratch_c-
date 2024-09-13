@@ -102,8 +102,8 @@ void setup(void) {
 
 	// Loads the cube values in the mesh data structure 
 	//load_cube_mesh_data();
-	load_obj_file_data("./assets/cube.obj");
-	load_png_texture_data("./assets/cube.png");
+	load_obj_file_data("./assets/f22.obj");
+	load_png_texture_data("./assets/f22.png");
 
 
 }

@@ -175,6 +175,6 @@ void load_obj_file_data(const char* filename) {
         }
     }
 
-    fclose(file);
     array_free(texcoords);
+    fclose(file);
 }

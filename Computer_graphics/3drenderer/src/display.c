@@ -25,12 +25,12 @@ bool initialize_window(void) {
 	i_Windown_height = display_mode.h;
 	// Create a SDL window
 	p_window = SDL_CreateWindow(
-		NULL,
+		"3D Renderer",
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
 		i_Windown_width,
 		i_Windown_height,
-		SDL_WINDOW_BORDERLESS
+		SDL_WINDOW_BORDERLESS | SDL_WINDOW_RESIZABLE
 	);
 	// if windwo contains content or is a valid pointer
 
@@ -46,7 +46,7 @@ bool initialize_window(void) {
 		return false;
 	}
 
-	SDL_SetWindowFullscreen(p_window, SDL_WINDOW_FULLSCREEN);
+	SDL_SetWindowFullscreen(p_window, SDL_WINDOW_MINIMIZED);
 	return true;
 
 
