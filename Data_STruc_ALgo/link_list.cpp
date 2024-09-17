@@ -31,6 +31,19 @@ public:
     	}
     }
 
+    void append(int value){
+    	std::unique_ptr<Node> newNode = std::make_unique<Node>(Node(value));
+    	if(length == 0){
+    		head = std::move(newNode);
+    		tail = head.get();
+    	}
+    	else {
+    		tail->next = std::move(newNode);
+    		tail = tail->next.get();
+    	}
+    	length++;
+    }
+
 	void getLength(){
 		std::cout<< "length : "<< length << std::endl;
 
@@ -56,6 +69,9 @@ public:
 int main(){
 
     auto myLinkedList = std::make_unique<LinkedList>(LinkedList(4));
+
+     myLinkedList->append(10);
+    myLinkedList->append(20);
     
     myLinkedList->getHead();
     myLinkedList->getTail();
