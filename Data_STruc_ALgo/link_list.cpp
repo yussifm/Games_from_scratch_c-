@@ -167,27 +167,20 @@ void deleteNode(int index) {
 }
 
 void reverseList() {
-    if (length <= 1) return;  // No need to reverse if the list is empty or has only one node
+    if (length <= 1) return;  // No need to reverse if the list has 0 or 1 node
 
-    Node* prev = nullptr;
-    Node* current = head.get();
-    tail = current;  // The current head will become the tail after reversal
-    std::unique_ptr<Node> next = nullptr;
+    Node* prev = nullptr;                // This will be the new tail (set to null initially)
+    Node* current = head.release();      // Transfer ownership from head to current
+    tail = current;                      // The current head will become the new tail
 
     while (current != nullptr) {
-        // Store the next node using a raw pointer (not moving ownership yet)
-        next.reset(current->next.release());  // Release ownership of the next node
-
-        // Reverse the current node's pointer to point to the previous node
-        current->next.reset(prev);
-
-        // Move prev and current pointers forward
-        prev = current;
-        current = next.get();
+        Node* next = current->next.release();  // Get next node and release its ownership
+        current->next.reset(prev);        // Reverse the next pointer
+        prev = current;                   // Move prev to the current node
+        current = next;                   // Move to the next node
     }
 
-    // Reset head to point to the new first node
-    head.reset(prev);
+    head.reset(prev);                     // Set the new head to the last node
 }
 
 
@@ -246,6 +239,12 @@ int main(){
     myLinkedList->setByIndex(2, 7);
     std::cout <<"Get value: " << myLinkedList->getByIndex(2)->value <<std::endl;
     myLinkedList->insert(1,10);
+
+    myLinkedList->getHead();
+    myLinkedList->getTail();
+    myLinkedList->getLength();
+    myLinkedList->printList();
+
     myLinkedList->reverseList();
 
     myLinkedList->getHead();
