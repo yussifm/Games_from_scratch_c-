@@ -167,21 +167,21 @@ void deleteNode(int index) {
 }
 
 void reverseList() {
-    if (length <= 1) return;  // No need to reverse if the list has 0 or 1 node
+    if (length <= 1) return;  
 
-    Node* prev = nullptr;                // This will be the new tail (set to null initially)
-    Node* current = head.release();      // Transfer ownership from head to current
-    tail = current;                      // The current head will become the new tail
+    Node* prev = nullptr;                
+    Node* current = head.release();      
+    tail = current;                     
 
     while (current != nullptr) {
-        Node* next = current->next.release();  // Get next node and release its ownership
-        current->next.reset(prev);        // Reverse the next pointer
-        prev = current;                   // Move prev to the current node
-        current = next;                   // Move to the next node
+        Node* next = current->next.release();  
+        current->next.reset(prev);        
+        prev = current;                   
+        current = next;                
     }
 
-    head.reset(prev);                     // Set the new head to the last node
-}
+    head.reset(prev);   
+    }               
 
 
 
