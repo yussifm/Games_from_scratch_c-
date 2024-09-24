@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build",
+        "command": "g++",
+        "args": [
+          "-IC:/raylib/raylib/src", 
+          "-LC:/raylib/raylib/src", 
+          "${file}", 
+          "-o", 
+          "app.exe", 
+          "-lraylib",
+          "-lopengl32", 
+          "-lgdi32", 
+          "-lwinmm", 
+          "-static"
+        ],
+        "type": "shell",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"],
+        "detail": "Generated task by user"
+      }
+    ]
+  }
+  

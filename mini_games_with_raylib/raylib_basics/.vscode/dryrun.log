@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'd:/programming/pratice_area/C_C++/games_from_scratch_with_c++/mini_games_with_raylib/raylib_basics'
+make: Leaving directory 'd:/programming/pratice_area/C_C++/games_from_scratch_with_c++/mini_games_with_raylib/raylib_basics'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
