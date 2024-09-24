@@ -3,26 +3,60 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**",
-                "C:/raylib/raylib/src"
+                "C:/raylib/raylib/src/**",
+                "${workspaceFolder}/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "GRAPHICS_API_OPENGL_33",
+                "PLATFORM_DESKTOP"
             ],
-            "windowsSdkVersion": "10.0.22621.0",
-            "compilerPath": "cl.exe",
-            "cStandard": "c23",
-            "cppStandard": "c++23",
-            "intelliSenseMode": "${default}",
-            "mergeConfigurations": true,
-            "browse": {
-                "limitSymbolsToIncludedHeaders": true,
-                "path": [
-                    "C:/raylib/raylib/src"
-                ]
-            }
+            "compilerPath": "C:/raylib/w64devkit/bin/gcc.exe",
+            "cStandard": "c99",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "gcc-x64"
+        },
+        {
+            "name": "Mac",
+            "includePath": [
+                "<path_to_raylib>/src/**",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "GRAPHICS_API_OPENGL_33",
+                "PLATFORM_DESKTOP"
+            ],
+            "macFrameworkPath": [
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "clang-x64"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "<path_to_raylib>/src/**",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "GRAPHICS_API_OPENGL_33",
+                "PLATFORM_DESKTOP"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "clang-x64"
+
         }
     ],
     "version": 4
