@@ -1,0 +1,1 @@
+g++ --std=c++17 .\temp_spec.cpp -o app
