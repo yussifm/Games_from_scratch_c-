@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 
@@ -28,11 +28,14 @@ adder(T x, U y) {
 
 
 int main(){
+	string firstName = "Hi";
+	string secondName = "Hello";
 
 	adder(2,4);
 	adder(4.6,4.6);
 	adder(2.7f,4.0f);
 	adder(2.888,4);
+	adder(firstName, secondName);
 
 
 }
