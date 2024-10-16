@@ -14,7 +14,7 @@ struct StructOneExam
 };
 
 
-// Using Type Traits with Tenolate
+// Using Type Traits with Template
 template <typename T>
 void FunctionOne(T Param) {
   if (std::is_arithmetic_v<T>) {
@@ -34,6 +34,9 @@ int main (){
     int num = StructOneExam::value;
 
     std::cout<< num <<std::endl;
+
+    FunctionOne(42);
+    FunctionOne("Hello World");
 
 
     
