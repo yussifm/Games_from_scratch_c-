@@ -45,7 +45,7 @@ return x + y;
 }
 
 
-// short c++ 20 templates 
+// short c++ 17/20 templates 
 auto adderThree(auto x, auto y){
 	return x + y;
 }
