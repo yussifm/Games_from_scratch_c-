@@ -1,0 +1,3 @@
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/CMakeFiles/MinesweeperGame.dir
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/CMakeFiles/ALL_BUILD.dir
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/CMakeFiles/ZERO_CHECK.dir
