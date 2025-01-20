@@ -1,6 +1,3 @@
-Here's the updated README with the complete `vcpkg` setup and CMake build process:
-
----
 
 # Setting Up the Project
 
