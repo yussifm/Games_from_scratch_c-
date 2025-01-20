@@ -1,0 +1,52 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FeatureSummary.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindPNG.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindZLIB.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/SelectLibraryConfigurations.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/CMakeFiles/3.30.3/CMakeCXXCompiler.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/CMakeFiles/3.30.3/CMakeRCCompiler.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/CMakeFiles/3.30.3/CMakeSystem.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/CMakeLists.txt
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg.json
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_image/SDL2_image-shared-targets-debug.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_image/SDL2_image-shared-targets-release.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_image/SDL2_image-shared-targets.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_image/SDL2_imageConfig.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_image/SDL2_imageConfigVersion.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_ttf/SDL2_ttf-shared-targets-debug.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_ttf/SDL2_ttf-shared-targets-release.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_ttf/SDL2_ttf-shared-targets.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_ttf/SDL2_ttfConfig.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/SDL2_ttf/SDL2_ttfConfigVersion.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/png/vcpkg-cmake-wrapper.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/sdl2/SDL2Config.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/sdl2/SDL2ConfigVersion.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/sdl2/SDL2Targets-debug.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/sdl2/SDL2Targets-release.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/sdl2/SDL2Targets.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/sdl2/SDL2mainTargets-debug.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/sdl2/SDL2mainTargets-release.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/sdl2/SDL2mainTargets.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/sdl2/sdlfind.cmake
+D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/vcpkg_installed/x64-windows/share/zlib/vcpkg-cmake-wrapper.cmake
+D:/programming/vcpkg/scripts/buildsystems/vcpkg.cmake

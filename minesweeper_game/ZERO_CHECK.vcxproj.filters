@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\programming\pratice_area\C_C++\games_from_scratch_with_c++\minesweeper_game\CMakeFiles\fe8b49ced85602d3892810d25d8984e7\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{0B8343BC-DA09-3482-9F47-49499EF03709}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

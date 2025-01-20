@@ -1,0 +1,10 @@
+^D:\PROGRAMMING\PRATICE_AREA\C_C++\GAMES_FROM_SCRATCH_WITH_C++\MINESWEEPER_GAME\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game -BD:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game --check-stamp-file D:/programming/pratice_area/C_C++/games_from_scratch_with_c++/minesweeper_game/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\programming\\pratice_area\\C_C\u002B\u002B\\games_from_scratch_with_c\u002B\u002B\\minesweeper_game\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1F4EED-3A84-39C5-8D9F-70D9094B460D}|MinesweeperGame.vcxproj|D:\\programming\\pratice_area\\C_C\u002B\u002B\\games_from_scratch_with_c\u002B\u002B\\minesweeper_game\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C1F4EED-3A84-39C5-8D9F-70D9094B460D}|MinesweeperGame.vcxproj|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\programming\\pratice_area\\C_C\u002B\u002B\\games_from_scratch_with_c\u002B\u002B\\minesweeper_game\\src\\main.cpp",
+              "RelativeDocumentMoniker": "src\\main.cpp",
+              "ToolTip": "D:\\programming\\pratice_area\\C_C\u002B\u002B\\games_from_scratch_with_c\u002B\u002B\\minesweeper_game\\src\\main.cpp",
+              "RelativeToolTip": "src\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-20T00:37:55.638Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
