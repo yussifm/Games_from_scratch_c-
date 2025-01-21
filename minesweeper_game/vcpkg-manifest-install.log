@@ -1,7 +1,7 @@
 Detecting compiler hash for triplet x64-windows...
 Compiler found: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.42.34433/bin/Hostx64/x64/cl.exe
 All requested packages are currently installed.
-Total install time: 1.75 ms
+Total install time: 1.98 ms
 sdl2 provides CMake targets:
 
     find_package(SDL2 CONFIG REQUIRED)
