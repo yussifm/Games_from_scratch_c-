@@ -13,4 +13,9 @@
       <UniqueIdentifier>{C685D48B-1A31-3A59-949A-A88476AE4DC0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Window.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
